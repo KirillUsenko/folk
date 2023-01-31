@@ -1,0 +1,117 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Правила сайта'
+  - var title = 'Поиск по сайту'
+
+block header
+  include ../components/header/header
+
+block content
+  .page
+    .container
+      .page__breadcrumbs
+        ol.breadcrumbs(itemscope="" itemtype="https://schema.org/BreadcrumbList")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="index.html" title="Главная")
+              span(itemprop="name") Главная
+              meta(itemprop="position" content="0")
+          li.breadcrumbs__item
+            span Поиск по сайту
+      .page__title
+        h1.reset Результаты поиска
+      .page__content.content
+        .search-page
+          .search-page__head
+            .search-page__form
+              form.search-form(action="#" method="get")
+                input.search-form__input.search-form__input--large(type="text" name="search" placeholder="Поиск по сайту")
+                button.search-form__submit.search-form__submit--large(type="submit" aria-label="Искать")
+                  +icon('search')
+            .search-page__sort
+              select.form-select.form-select--search(name="sort")
+                option(value="Сначала новые") Сначала новые
+                option(value="Алфавитный порядок А-Я" selected) Алфавитный порядок А-Я
+                option(value="Алфавитный порядок Я-А") Алфавитный порядок Я-А
+          .search-page__content
+            .search-page__tags
+              a.tag.current(href="#" title="Показать все 150") Показать все
+                span.tag__count 150
+              a.tag(href="#" title="Наименование 25") Наименование
+                span.tag__count 25
+              a.tag(href="#" title="Исполнитель 25") Исполнитель
+                span.tag__count 25
+              a.tag(href="#" title="Автор записи 34") Автор записи
+                span.tag__count 34
+              a.tag(href="#" title="Описание 6") Описание
+                span.tag__count 6
+              a.tag(href="#" title="Номер записи 6") Номер записи
+                span.tag__count 6
+              a.tag(href="#" title="Новости 21") Новости
+                span.tag__count 21
+            .search-page__item
+              .search-page__item-type Исполнитель
+              a.search-page__item-link(href="#" title="Купало 2010 ВЕЛЕСОВ КРУГ Похороны Ярилы")
+                ="Купало 2010 ВЕЛЕСОВ КРУГ Похороны "
+                b Ярилы
+              .search-page__item-short Современные технологии достигли такого уровня, что постоянный количественный рост и сфера нашей активности, в своём классическом представлении, допускает внедрение поставленных обществом задач. А ещё предприниматели в сети интернет лишь добавляют фракционных разногласий и.
+              .search-page__item-date Создано: 21.12.1998
+            .search-page__item
+              .search-page__item-type Исполнитель
+              a.search-page__item-link(href="#" title="Купало 2010 ВЕЛЕСОВ КРУГ Похороны Ярилы")
+                ="Купало 2010 ВЕЛЕСОВ КРУГ Похороны "
+                b Ярилы
+              .search-page__item-short Современные технологии достигли такого уровня, что постоянный количественный рост и сфера нашей активности, в своём классическом представлении, допускает внедрение поставленных обществом задач. А ещё предприниматели в сети интернет лишь добавляют фракционных разногласий и.
+              .search-page__item-date Создано: 21.12.1998
+            .search-page__item
+              .search-page__item-type Исполнитель
+              a.search-page__item-link(href="#" title="Купало 2010 ВЕЛЕСОВ КРУГ Похороны Ярилы")
+                ="Купало 2010 ВЕЛЕСОВ КРУГ Похороны "
+                b Ярилы
+              .search-page__item-short Современные технологии достигли такого уровня, что постоянный количественный рост и сфера нашей активности, в своём классическом представлении, допускает внедрение поставленных обществом задач. А ещё предприниматели в сети интернет лишь добавляют фракционных разногласий и.
+              .search-page__item-date Создано: 21.12.1998
+            .search-page__item
+              .search-page__item-type Исполнитель
+              a.search-page__item-link(href="#" title="Купало 2010 ВЕЛЕСОВ КРУГ Похороны Ярилы")
+                ="Купало 2010 ВЕЛЕСОВ КРУГ Похороны "
+                b Ярилы
+              .search-page__item-short Современные технологии достигли такого уровня, что постоянный количественный рост и сфера нашей активности, в своём классическом представлении, допускает внедрение поставленных обществом задач. А ещё предприниматели в сети интернет лишь добавляют фракционных разногласий и.
+              .search-page__item-date Создано: 21.12.1998
+            .search-page__item
+              .search-page__item-type Исполнитель
+              a.search-page__item-link(href="#" title="Купало 2010 ВЕЛЕСОВ КРУГ Похороны Ярилы")
+                ="Купало 2010 ВЕЛЕСОВ КРУГ Похороны "
+                b Ярилы
+              .search-page__item-short Современные технологии достигли такого уровня, что постоянный количественный рост и сфера нашей активности, в своём классическом представлении, допускает внедрение поставленных обществом задач. А ещё предприниматели в сети интернет лишь добавляют фракционных разногласий и.
+              .search-page__item-date Создано: 21.12.1998
+            .search-page__item
+              .search-page__item-type Исполнитель
+              a.search-page__item-link(href="#" title="Купало 2010 ВЕЛЕСОВ КРУГ Похороны Ярилы")
+                ="Купало 2010 ВЕЛЕСОВ КРУГ Похороны "
+                b Ярилы
+              .search-page__item-short Современные технологии достигли такого уровня, что постоянный количественный рост и сфера нашей активности, в своём классическом представлении, допускает внедрение поставленных обществом задач. А ещё предприниматели в сети интернет лишь добавляют фракционных разногласий и.
+              .search-page__item-date Создано: 21.12.1998
+            ul.pagination
+              li.pagination__item.pagination__item--prev
+                a.pagination__link(href="#" title="Предыдущая страница")
+                  +icon('arrow-left', 'pagination__arrow')
+              li.pagination__item.current
+                a.pagination__link(href="#" title="Страница 1") 1
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 2") 2
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 3") 3
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 4") 4
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 5") 5
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 6") ...
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 10") 10
+              li.pagination__item.pagination__item--next
+                a.pagination__link(href="#" title="Следующая страница")
+                  +icon('arrow-right', 'pagination__arrow')
+
+block footer
+  include ../components/footer/footer

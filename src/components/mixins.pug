@@ -1,0 +1,4 @@
+mixin icon(name, mod)
+	- mod = mod || ''
+	svg(class=mod role='img')
+		use(xlink:href='img/icons/icons.svg?v=' + data.version + '#' + name)

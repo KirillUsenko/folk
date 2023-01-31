@@ -1,0 +1,82 @@
+.download-page {
+
+  &--reset-bottom {
+    margin: 0 0 -60px;
+  }
+
+  &__status {
+
+    .small {
+      color: $blue-grey;
+    }
+
+    &-value {
+      margin: 1.2em 0;
+      text-align: center;
+
+      .limits__value {
+        margin: 0;
+      }
+    }
+  }
+
+  &__info {
+    margin: 1em 0 2.5em;
+    padding: 0.8em 0 0;
+    color: $blue-grey;
+    line-height: 1.3;
+    border-top: 1px solid $very-light-grey;
+  }
+}
+
+@media all and (min-width: $screen-sm) {
+  .download-page {
+
+    &__status {
+      display: flex;
+      align-items: flex-start;
+
+      &-value {
+        margin: 0 1.4em;
+      }
+
+      &-text {
+        margin: 0.8em 0 0;
+      }
+    }
+
+    &__info {
+      margin: 1.5em 0 3em;
+      padding: 1em 0 0;
+    }
+  }
+}
+
+@media all and (min-width: $screen-md) {
+  .download-page {
+
+    &__status {
+
+      &-value {
+        margin: 0 1.7em;
+      }
+
+      &-text {
+        margin: 0.8em 0 0;
+      }
+    }
+
+    &__info {
+      margin: 2em 0 3em;
+    }
+  }
+}
+
+@media all and (min-width: $screen-lg) {
+  .download-page {
+
+    &--reset-bottom {
+      margin: 0 0 -80px;
+    }
+  }
+}

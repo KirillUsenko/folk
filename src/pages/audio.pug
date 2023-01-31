@@ -1,0 +1,182 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Коллекции'
+  - var title = 'Мир фолка'
+
+block header
+  include ../components/header/header
+
+block content
+  .page
+    .container
+
+      .page__breadcrumbs
+        ol.breadcrumbs(itemscope="" itemtype="https://schema.org/BreadcrumbList")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="index.html" title="Главная")
+              span(itemprop="name") Главная
+              meta(itemprop="position" content="0")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="collections.html" title="Коллекции")
+              span(itemprop="name") Коллекции
+              meta(itemprop="position" content="1")
+          li.breadcrumbs__item
+            span А что ж ты, да ой, да ковыль-травушка
+
+      .page__title
+        h1.h3.reset А что ж ты, да ой, да ковыль-травушка
+        .page__subtitle Былина, плач, причетание
+        .page__back
+          button.button.button--grey-link.button--small(type="button" onclick="history.back()" aria-label="Вернуться назад")
+            +icon('reply-solid', 'button__icon button__icon--left button__icon--default')
+            ="Вернуться назад"
+
+      .section.section--pb-medium
+        .row
+          .col-xs-12.col-sm-6
+            .item__btn-copy
+              a.button.button--default.button--green-clear-pc(href="map.html" title="Показать на карте")
+                +icon('map', 'button__icon button__icon--large button__icon--grey button__icon--left')
+                | Показать на карте
+              .item__number.item__number--large Номер записи: 12345678
+                button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                  +icon('copy', 'button__icon button__icon--large')
+        .item__wrap
+          .row
+            .col-xs-12.col-sm-6
+              img.item__img.item__img--full(src="img/audio-full.jpg" alt="А что ж ты, да ой, да ковыль-травушка")
+              .item__player-large
+                .audio-player.audio-player--large
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause.audio-player__play-pause--large
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress.audio-player__progress--large
+                    span.audio-player__progress-line.audio-player__progress-line--large
+                  .audio-player__time.audio-player__time--large
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+                  .audio-player__download
+                    span.question.question--default(data-tippy)
+                      +icon('download')
+                    span.visually-hidden
+                      ="Для того, чтобы скачать аудио, необходимо "
+                      a.js-modal-open(href="#login" title="Войти") Войти
+                      =" или "
+                      a.js-modal-open(href="#register" title="Зарегистрироваться") Зарегистрироваться
+              .item__about
+                .item__about-item
+                  .item__account
+                    ="Аккаунт: "
+                    a(href="#" title="Saltanov Albert") Saltanov Albert
+                .item__about-item
+                  a.item__link(href="#" title="Как скачать аудио?") Как скачать аудио?
+            .col-xs-12.col-sm-6
+              .item__stamp-share
+                img.item__stamp(src="img/stamp.jpg" alt="Подтверждено" width="442" height="142" loading="lazy")
+                .item__share
+                  button.button.button--square-medium.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                    +icon('heart')
+                  a.button.button--square-medium.js-modal-open.js-share(href="#share" title="Поделиться" data-post-url="http://dalab.ru")
+                    +icon('share')
+              .row
+                .col-xs-12.col-sm-4
+                  .item__group
+                    +icon('calendar', 'calendar')
+                    .item__group-text
+                      span.big 1970
+                      span.question.question--default(data-tippy)
+                        +icon('question')
+                      span.visually-hidden Если ваше сообщение касается конкретной записи
+                .col-xs-12.col-sm-8
+                  .item__group
+                    +icon('marker', 'marker')
+                    .item__group-text
+                      span.big Россия
+                      .text Тверская обл.  Зареченский р-н, с. Малые Кони
+                        span.question.question--default(data-tippy)
+                          +icon('question')
+                        span.visually-hidden Если ваше сообщение касается конкретной записи
+                      .text-light.small Запись сделана в с. Костромка, Днеповской обл.
+                        span.question.question--default(data-tippy)
+                          +icon('question')
+                        span.visually-hidden Если ваше сообщение касается конкретной записи
+              hr
+              p
+                b.medium Исполняет: Ансамбль “Душечка”
+                span.question.question--default(data-tippy)
+                  +icon('question')
+                span.visually-hidden Если ваше сообщение касается конкретной записи
+              p Аркадий Васильевич Белый
+                br
+                span.text-light.small 1987 г.р. Миргородская обл., пос. Мирный, язык русский, филолог, историк
+              p Светлана Владимировна Комаровская
+                br
+                span.text-light.small 1966 г.р.  Москвоская обл, г. Красногорск, язык русский, историк
+              p Ольга  Артемовна Хованская
+                br
+                span.text-light.small 1970 г.р.  Минская обл., г. Гомель, язык белорусский
+              p Михаил Александрович Пышкинский
+                br
+                span.text-light.small 1980 г.р.  Ровненская обл., г. Здолбунов, язык Украинский
+              hr
+              .row
+                .col-xs-12.col-sm-6
+                  p
+                    b.medium Автор записи:
+                    span.question.question--default(data-tippy)
+                      +icon('question')
+                    span.visually-hidden Если ваше сообщение касается конкретной записи
+                    br
+                    ="Агафья Задорожная"
+                .col-xs-12.col-sm-6
+                  p
+                    b.medium Год рождения:
+                    span.question.question--default(data-tippy)
+                      +icon('question')
+                    span.visually-hidden Если ваше сообщение касается конкретной записи
+                    br
+                    ="1932"
+
+    .section.section--py-medium.section--milk
+      .container
+        .row
+          .col-xs-12.col-sm-6
+            p
+              b.medium Род деятельности:
+              br
+              ="Рекрутирование, военная служба"
+            p
+              b.medium События жизни:
+              br
+              ="Юность, зрелость"
+            p
+              b.medium Календарь
+              br
+              ="Весна, лето"
+            p
+              b.medium Пол участников:
+              br
+              ="Все"
+          .col-xs-12.col-sm-6
+            p
+              b.medium Земледельчиский цикл:
+              br
+              ="Сев"
+            p
+              b.medium Музыкальный аккомпанемент:
+              br
+              ="Голосовой аккомпанемент, гармонь"
+            p
+              b.medium Возраст участников:
+              br
+              ="Взрослые"
+
+    .section.section--pt
+      .container Повседневная практика показывает, что социально-экономическое развитие прекрасно подходит для реализации кластеризации усилий. Противоположная точка зрения подразумевает, что диаграммы связей, вне зависимости от их уровня, должны быть описаны максимально подробно. Акционеры крупнейших компаний неоднозначны и будут указаны как претенденты на роль ключевых факторов! Прежде всего, курс на социально-ориентированный национальный проект, в своём классическом представлении, допускает внедрение форм воздействия. Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость направлений прогрессивного развития. Кстати,  интерактивные прототипы будут своевременно верифицированы. Мы вынуждены отталкиваться от того, что высококачественный прототип будущего проекта требует от нас анализа форм воздействия. Глубокий уровень погружения, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для распределения внутренних резервов и ресурсов. Разнообразный и богатый опыт говорит нам, что высокотехнологичная концепция общественного уклада создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса
+
+block footer
+  include ../components/footer/footer

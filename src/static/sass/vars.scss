@@ -1,0 +1,52 @@
+/* Color styles */
+$y-g-3: #AEE503;
+$y-g-2: #8BBA08;
+$yellow-green: #688E0C;
+$dark-green: #4B5919;
+$black: #000000;
+$very-dark-grey: #040818;
+$dark-grey: #1A1F35;
+$grey: #313A50;
+$blue-grey: #5D6E99;
+$light-grey: #B8BFD7;
+$very-light-grey: #EBEEF8;
+$milk-white: #F4F2ED;
+$white: #FFFFFF;
+$ohra: #B4986E;
+$orange: #F29509;
+$placeholder: #8C92A0;
+$input-border: #858C9E;
+$red: #ff0000;
+$green-linear: linear-gradient(77.69deg, #688E0C 0%, #AEE503 98.14%);
+
+$shadow: 0 5px 50px rgba(0,0,0,0.07);
+$shadow-top: 0 -5px 50px rgba(0,0,0,0.05);
+$transition-time: 0.3s;
+
+$telegram: #4EA4F6;
+$facebook: #1877F2;
+$odnoklassniki: #EE8208;
+$vkontakte: #0077FF;
+$twitter: #1CA1F1;
+$instagram: #C60190;
+$youtube: #ff0000;
+$yandex: #D61E3B;
+$mitgusley: #F40100;
+$google: #518EF8;
+$whatsapp: #25D366;
+$viber: #774A95;
+
+$montserrat: "Montserrat", sans-serif;
+
+// Grid
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-lg: 1400px;
+
+$container-md: 984px;
+$container-1280: 1140px;
+$container-lg: 1320px;
+$gap-xs: 10px;
+$gap-sm: 12px;
+$gap-md: 15px;
+$gap-lg: 18px;

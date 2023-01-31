@@ -1,0 +1,224 @@
+.add-material {
+  &__calendar-button {
+    display: flex;
+    align-items: center;
+
+    a {
+      font-weight: 500;
+    }
+  }
+
+  &__calendar-modal {
+    width: 70%;
+    min-width: 290px;
+  }
+
+  &__calendar-month.filter__group {
+    padding: 0 0 0.6em 0;
+    border-bottom: 1px solid $very-light-grey;
+
+    span {
+      font-weight: 500;
+    }
+
+    &:nth-child(2) {
+      margin-top: 30px;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $very-light-grey;
+    }
+
+    & .filter__group-title--trigger {
+      &:hover {
+        color: inherit;
+      }
+
+      &::after {
+        border-right: 2px solid $blue-grey;
+        border-bottom: 2px solid $blue-grey;
+      }
+    } 
+
+    & .filter__checkbox {
+      padding: 0 0 0.7em 0;
+      border-bottom: 1px solid rgba($ohra, .25);
+    }
+
+    & .form__checkbox-text {
+      display: flex;
+      flex-direction: column;
+
+      i {
+        font-style: italic;
+        margin-top: 12px;
+
+        span {
+          padding-right: 6px;
+          padding-left: 4px;
+          border-right: 1px solid rgba($ohra, .25);
+
+          i {
+            color: $ohra;
+            padding-left: 4px;
+          }
+
+          &:first-child {
+            padding-left: 0;
+          }
+
+          &:last-child {
+            border-right: 0;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__calendar-reset.button--large {
+    color: $blue-grey;
+    font-weight: 400;
+    text-transform: capitalize;
+
+    svg {
+      opacity: .4;
+    }
+  }
+
+  &__calendar-submit.button--large {
+    color: $dark-grey;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  &__buttons.modal__head {
+    justify-content: flex-end;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 0.6em;
+
+    &--milk {
+      padding: 0.8em 0 0.85em;
+      background-color: $milk-white;
+    }
+  }
+
+  &__subtitle {
+    margin: 0.4em 0 0;
+    color: $blue-grey;
+    line-height: 1.3;
+  }
+
+  &__label {
+    margin: 0 0 0.8em;
+    font-weight: 600;
+
+    &--reset {
+      margin: 0;
+    }
+  }
+
+  &__field {
+    margin: 28px 0 0;
+  }
+
+  &__upload {
+    margin: 24px 0 0;
+  }
+
+  &__group {
+    margin: 20px 0 0;
+
+    &--deliver {
+      padding-bottom: 1.2em;
+      border-bottom: 1px solid $very-light-grey;
+    }
+  }
+
+  &__checkbox {
+    margin: 8px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__map {
+    height: 40vh;
+    margin: 10px 0 0;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+}
+
+@media all and (min-width: $screen-sm) {
+  .add-material {
+
+    &__upload {
+      margin: 28px 0 0;
+    }
+
+    &__calendar {
+      margin: 16px 0 0;
+    }
+
+    &__calendar-modal {
+      width: 695px;
+    }
+  }
+}
+
+@media all and (min-width: $screen-md) {
+  .add-material {
+
+    &__field {
+      margin: 40px 0 0;
+    }
+
+    &__title {
+      font-size: 22px;
+    }
+
+    &__calendar {
+      margin: 0;
+    }
+
+    &__upload {
+      margin: 36px 0 0;
+    }
+
+    &__map {
+      margin: 15px 0 0;
+      border-radius: 20px;
+    }
+  }
+}
+
+@media all and (min-width: $screen-lg) {
+  .add-material {
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__field {
+      margin: 52px 0 0;
+    }
+
+    &__group {
+      margin: 28px 0 0;
+    }
+
+    &__upload {
+      margin: 40px 0 0;
+    }
+
+    &__checkbox {
+      margin: 10px 0;
+    }
+  }
+}

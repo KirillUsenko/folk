@@ -1,0 +1,207 @@
+header.header
+  .header__wrap
+    .container
+      .header__inner
+        button.header__search-toggle(type="button" aria-label="Показать / скрыть поиск")
+          span
+            +icon('search')
+        a.header__logo(href="index.html" title="Мир фолка")
+          img.header__logo-img(src="img/svg/logo.svg" alt="Мир фолка" width="185" height="112")
+        .header__content
+          button.header__hamburger(type="button" aria-label="Показать / скрыть меню")
+            span
+          .header__search
+            form.search-form(action="/" method="get")
+              input.search-form__input.search-form__input--small(type="text" name="search" placeholder="Поиск по сайту")
+              button.search-form__submit.search-form__submit--small(type="submit" aria-label="Искать")
+                +icon('search')
+          .header__nav-wrap
+            nav.header__nav
+              ul.header__user
+                li.header__user-item.header__user-item--callback
+                  a.header__user-link.js-modal-open(href="#callback" title="Связаться с нами")
+                    +icon('envelope', 'header__user-icon header__user-icon--mail')
+                    | Связаться с нами
+                li.header__user-item
+                  a.header__user-link.js-modal-open(href="#login" title="Вход / Регистрация")
+                    +icon('user', 'header__user-icon header__user-icon--user')
+                    | Вход / Регистрация
+              a.header__add-material(href="add-material.html" title="Добавить материал")
+                span.header__add-material-icon
+                | Добавить материал
+              ul.header__menu
+                each link, title in data.nav
+                  li.header__menu-item(class=title === active ? 'current' : '')
+                    a.header__menu-link(href=link title=title)=title
+              ul.header__social
+                li.header__social-item
+                  a.header__social-link(href="#" title="Мы в youtube")
+                    +icon('youtube-circle')
+                li.header__social-item
+                  a.header__social-link(href="#" title="Мы в одноклассниках")
+                    +icon('ok-circle')
+                li.header__social-item
+                  a.header__social-link(href="#" title="Мы в vkontakte")
+                    +icon('vkontakte-circle')
+
+#login.modal.hidden
+  .modal__overlay.js-modal-close
+  .modal__inner.modal__inner--small
+    button.modal__close.js-modal-close(type="button" aria-label="Закрыть модальное окно")
+    .modal__head Добро пожаловать
+    .modal__body
+      form.form(action="/login" method="post")
+        .form__subtitle Войдите быстро через соцсети
+        .form__social
+          a.form__social-item.form__social-item--mirgusley(href="#" title="Войти с помощью Мир гуслей")
+            +icon('mirgusley', 'form__social-icon-mirgusley')
+          a.form__social-item.form__social-item--vkontakte(href="#" title="Войти с помощью Вконтакте")
+            +icon('vkontakte', 'form__social-icon-vkontakte')
+          a.form__social-item.form__social-item--google(href="#" title="Войти с помощью Google")
+            +icon('google', 'form__social-icon-google')
+          a.form__social-item.form__social-item--facebook(href="#" title="Войти с помощью Facebook")
+            +icon('facebook', 'form__social-icon-facebook')
+          a.form__social-item.form__social-item--yandex(href="#" title="Войти с помощью Яндекс")
+            +icon('yandex', 'form__social-icon-yandex')
+        .form__deliver
+          .form__deliver-text или
+        .form__form
+          .form__field
+            label.form__label(for="email") Email
+            input#email.form__input(type="email" name="email" placeholder="example@mail.com" required)
+          .form__field
+            label.form__label(for="password") Пароль
+            input#password.form__input(type="password" name="password" placeholder="●●●●●●●●" required)
+          .form__button
+            .form__buttons
+              .form__buttons-item.form__buttons-item--button
+                button.button.button--green-clear.button--medium.button--full(type="submit") Войти
+              .form__buttons-item
+                a.form__link.form__link--grey.js-modal-open(href="#recovery" title="Забыли пароль?") Забыли пароль?
+      .modal__foot
+        ="Еще нет профиля? "
+        a.form__link.form__link--green.js-modal-open(href="#register" title="Зарегистрироваться") Зарегистрируйтесь
+#register.modal.hidden
+  .modal__overlay.js-modal-close
+  .modal__inner.modal__inner--small
+    button.modal__close.js-modal-close(type="button" aria-label="Закрыть модальное окно")
+    .modal__head Добро пожаловать
+    .modal__body
+      form.form(action="/register" method="post")
+        .form__subtitle Зарегистрируйтесь через соцсети
+        .form__social
+          a.form__social-item.form__social-item--mirgusley(href="#" title="Войти с помощью Мир гуслей")
+            +icon('mirgusley', 'form__social-icon-mirgusley')
+          a.form__social-item.form__social-item--vkontakte(href="#" title="Войти с помощью Вконтакте")
+            +icon('vkontakte', 'form__social-icon-vkontakte')
+          a.form__social-item.form__social-item--google(href="#" title="Войти с помощью Google")
+            +icon('google', 'form__social-icon-google')
+          a.form__social-item.form__social-item--facebook(href="#" title="Войти с помощью Facebook")
+            +icon('facebook', 'form__social-icon-facebook')
+          a.form__social-item.form__social-item--yandex(href="#" title="Войти с помощью Яндекс")
+            +icon('yandex', 'form__social-icon-yandex')
+        .form__deliver
+          .form__deliver-text или
+        .form__form
+          .form__field
+            label.form__label(for="register-name") Имя или организация
+            input#register-name.form__input(type="text" name="name" placeholder="Иван" required)
+          .form__field
+            label.form__label(for="register-email") Email
+            input#register-email.form__input(type="email" name="email" placeholder="example@mail.com" required)
+          .form__field
+            label.form__label(for="register-password") Пароль
+            .form__field-wrap
+              input#register-password.form__input(type="password" name="password" placeholder="●●●●●●●●" required)
+              button.form__eye-button(type="button")
+                +icon('eye')
+          .form__field
+            label.form__label(for="register-password-repeat") Пароль повторно
+            .form__field-wrap
+              input#register-password-repeat.form__input(type="password" name="password" placeholder="●●●●●●●●" required)
+              button.form__eye-button(type="button")
+                +icon('eye')
+          .form__field
+            label.form__checkbox
+              input.form__checkbox-input(type="checkbox" name="subscribe" checked)
+              span.form__checkbox-icon
+              span.form__checkbox-text Хочу получать email рассылку
+            label.form__checkbox
+              input.form__checkbox-input(type="checkbox" name="subscribe" checked)
+              span.form__checkbox-icon
+              span.form__checkbox-text
+                ="С "
+                a(href="rules.html" title="Правила сайта") правилами сайта
+                = " согласен"
+          .form__button
+            button.button.button--green-clear.button--medium.button--full(type="submit") Зарегистрироваться
+      .modal__foot
+        ="Уже есть профиль?  "
+        a.form__link.form__link--green.js-modal-open(href="#login" title="Вход на сайт") Войдите
+#recovery.modal.hidden
+  .modal__overlay.js-modal-close
+  .modal__inner.modal__inner--small
+    button.modal__close.js-modal-close(type="button" aria-label="Закрыть модальное окно")
+    .modal__head Забыли пароль
+    .modal__body
+      form.form(action="/register" method="post")
+        .form__form
+          .form__response.form__response--succes Сообщение отправлено
+          .form__field
+            label.form__label(for="recovery-email") Email
+            span.form__message.form__message--error Поле обязательно для заполнения и должно иметь минимум 6 символов
+            input#recovery-email.form__input.error(type="email" name="email" placeholder="example@mail.com" required)
+          .form__button
+            button.button.button--green-clear.button--medium.button--full(type="submit") Выслать пароль
+      .modal__foot
+        ="Еще нет профиля?  "
+        a.form__link.form__link--green.js-modal-open(href="#register" title="Зарегистрироваться") Зарегистрируйтесь
+#callback.modal.hidden
+  .modal__overlay.js-modal-close
+  .modal__inner.modal__inner--small
+    button.modal__close.js-modal-close(type="button" aria-label="Закрыть модальное окно")
+    .modal__head Связаться с нами
+    .modal__body
+      form.form(action="/register" method="post")
+        .form__form
+          .form__field
+            label.form__label(for="callback-name") Имя или организация
+            input#callback-name.form__input(type="text" name="name" placeholder="Иван" required)
+          .form__field
+            label.form__label(for="callback-email") Email
+            input#callback-email.form__input(type="email" name="email" placeholder="example@mail.com" required)
+          .form__field
+            label.form__label(for="callback-message") Сообщение
+            textarea#callback-message.form__textarea(name="message" placeholder="Вопрос, предложение или другое" required)
+          .form__field
+            label.form__label(for="callback-id")
+              span Номер записи
+              span.question(data-tippy)
+                +icon('question')
+              span.visually-hidden Если ваше сообщение касается конкретной записи
+            input#callback-id.form__input(type="text" name="id" placeholder="Например: 12345678" required)
+          .form__button
+            button.button.button--green-clear.button--medium.button--full(type="submit" disabled) Отправить
+#share.modal.hidden
+  .modal__overlay.js-modal-close
+  .modal__inner.modal__inner--small
+    button.modal__close.js-modal-close(type="button" aria-label="Закрыть модальное окно")
+    .modal__head Поделиться в соц сетях
+    .modal__body
+      .share
+        .share__buttons
+          .share__buttons-item
+            a.share__button.whatsapp(href="https://api.whatsapp.com/send/?text=" title="Поделиться в whatsapp" target="_blank")
+              +icon('whatsapp')
+          .share__buttons-item
+            a.share__button.telegram(href="https://t.me/share?url=" title="Поделиться в telegram" target="_blank")
+              +icon('telegram')
+          .share__buttons-item
+            a.share__button.viber(href="viber://forward?text=" title="Поделиться в viber" target="_blank")
+              +icon('viber')
+          .share__buttons-item
+            a.share__button.vkontakte(href="https://vk.com/share.php?url=" title="Поделиться в vkontakte" target="_blank")
+              +icon('vk')
+        button.share__copy(aria-label="Копировать ссылку" data-url="" type="button")
+          +icon('link', 'share__copy-icon')
+          span.button__text-right Копировать ссылку

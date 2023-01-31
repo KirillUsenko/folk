@@ -1,0 +1,337 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Коллекции списком'
+  - var title = 'Мир фолка'
+
+block header
+  include ../components/header/header
+
+block content
+  .page
+    .container
+      .page__breadcrumbs
+        ol.breadcrumbs(itemscope="" itemtype="https://schema.org/BreadcrumbList")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="index.html" title="Главная")
+              span(itemprop="name") Главная
+              meta(itemprop="position" content="0")
+          li.breadcrumbs__item
+            span Коллекции
+      .page__title
+        h1.reset Коллекции
+      .page__content
+        .collections
+          .collections__content
+            .collections__toggle-types.collections__toggle-types--list
+              .collections__toggle-type
+                a.button.button--default.button--green-clear-pc(href="map.html" title="Показать на карте")
+                  +icon('map', 'button__icon button__icon--large button__icon--grey button__icon--left')
+                  | Показать на карте
+              .collections__toggle-type.collections__toggle-type--sm
+                a.button.button--default.button--green-clear-pc.js-filter-toggle(href="#filter" title="Фильтры")
+                  +icon('filter', 'button__icon button__icon--grey button__icon--medium button__icon--left')
+                  | Фильтры
+            .collections__list.items
+              .items__item
+                .item
+                  .item__inner
+                    .item__inner-thumb
+                      a.item__thumb.item__thumb--full(href="audio.html" title="А что ж ты что-то там где-то")
+                        img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                    .item__inner-content
+                      .item__date-number
+                        .item__date
+                          +icon('calendar')
+                          | 22.01.2022
+                        .item__number Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      a.item__title.item__title--full(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                      .item__info
+                        span Былина
+                      .item__author.item__author--mt
+                        span
+                          b="Ансамбль: "
+                          a(href="author.html" title="“Братчина”") “Братчина”
+                        span
+                          b="Автор: "
+                          a(href="author.html" title="Купников В.Г.") Купников В.Г.
+                      .item__player.item__player--full
+                        .audio-player
+                          audio.audio-player__audio(controls)
+                            source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                          .audio-player__play-pause
+                            button.audio-player__play(type="button" aria-label="Плей/пауза")
+                              +icon('play')
+                          .audio-player__progress
+                            span.audio-player__progress-line
+                          .audio-player__time
+                            span.audio-player__time-current 0:00
+                            =" / "
+                            span.audio-player__time-all 1:44
+                    .item__inner-location
+                      .item__country
+                        +icon('marker')
+                        | Украина
+                      .item__city Курская обл., Комсомольский р-н, с. Чернево
+                    .item__share-favorite
+                      a.button.button--square-small.js-modal-open.js-share(href="#share" title="Поделиться" data-post-url="http://dalab.ru")
+                        +icon('share')
+                      button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                        +icon('heart')
+              .items__item
+                .item
+                  .item__inner
+                    .item__inner-thumb
+                      a.item__thumb.item__thumb--full(href="audio.html" title="А что ж ты что-то там где-то")
+                        img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                    .item__inner-content
+                      .item__date-number
+                        .item__date
+                          +icon('calendar')
+                          | 22.01.2022
+                        .item__number Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      a.item__title.item__title--full(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                      .item__info
+                        span Былина
+                      .item__author.item__author--mt
+                        span
+                          b="Ансамбль: "
+                          a(href="author.html" title="“Братчина”") “Братчина”
+                        span
+                          b="Автор: "
+                          a(href="author.html" title="Купников В.Г.") Купников В.Г.
+                      .item__player.item__player--full
+                        .audio-player
+                          audio.audio-player__audio(controls)
+                            source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                          .audio-player__play-pause
+                            button.audio-player__play(type="button" aria-label="Плей/пауза")
+                              +icon('play')
+                          .audio-player__progress
+                            span.audio-player__progress-line
+                          .audio-player__time
+                            span.audio-player__time-current 0:00
+                            =" / "
+                            span.audio-player__time-all 1:44
+                    .item__inner-location
+                      .item__country
+                        +icon('marker')
+                        | Украина
+                      .item__city Курская обл., Комсомольский р-н, с. Чернево
+                    .item__share-favorite
+                      a.button.button--square-small.js-modal-open.js-share(href="#share" title="Поделиться" data-post-url="http://dalab.ru")
+                        +icon('share')
+                      button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                        +icon('heart')
+
+              .items__item
+                .item
+                  .item__inner
+                    .item__inner-thumb
+                      a.item__thumb.item__thumb--full(href="audio.html" title="А что ж ты что-то там где-то")
+                        img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                    .item__inner-content
+                      .item__date-number
+                        .item__date
+                          +icon('calendar')
+                          | 22.01.2022
+                        .item__number Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      a.item__title.item__title--full(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                      .item__info
+                        span Былина
+                      .item__author.item__author--mt
+                        span
+                          b="Ансамбль: "
+                          a(href="author.html" title="“Братчина”") “Братчина”
+                        span
+                          b="Автор: "
+                          a(href="author.html" title="Купников В.Г.") Купников В.Г.
+                      .item__player.item__player--full
+                        .audio-player
+                          audio.audio-player__audio(controls)
+                            source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                          .audio-player__play-pause
+                            button.audio-player__play(type="button" aria-label="Плей/пауза")
+                              +icon('play')
+                          .audio-player__progress
+                            span.audio-player__progress-line
+                          .audio-player__time
+                            span.audio-player__time-current 0:00
+                            =" / "
+                            span.audio-player__time-all 1:44
+                    .item__inner-location
+                      .item__country
+                        +icon('marker')
+                        | Украина
+                      .item__city Курская обл., Комсомольский р-н, с. Чернево
+                    .item__share-favorite
+                      a.button.button--square-small.js-modal-open.js-share(href="#share" title="Поделиться" data-post-url="http://dalab.ru")
+                        +icon('share')
+                      button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                        +icon('heart')
+              .items__item
+                .item
+                  .item__inner
+                    .item__inner-thumb
+                      a.item__thumb.item__thumb--full(href="audio.html" title="А что ж ты что-то там где-то")
+                        img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                    .item__inner-content
+                      .item__date-number
+                        .item__date
+                          +icon('calendar')
+                          | 22.01.2022
+                        .item__number Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      a.item__title.item__title--full(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                      .item__info
+                        span Былина
+                      .item__author.item__author--mt
+                        span
+                          b="Ансамбль: "
+                          a(href="author.html" title="“Братчина”") “Братчина”
+                        span
+                          b="Автор: "
+                          a(href="author.html" title="Купников В.Г.") Купников В.Г.
+                      .item__player.item__player--full
+                        .audio-player
+                          audio.audio-player__audio(controls)
+                            source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                          .audio-player__play-pause
+                            button.audio-player__play(type="button" aria-label="Плей/пауза")
+                              +icon('play')
+                          .audio-player__progress
+                            span.audio-player__progress-line
+                          .audio-player__time
+                            span.audio-player__time-current 0:00
+                            =" / "
+                            span.audio-player__time-all 1:44
+                    .item__inner-location
+                      .item__country
+                        +icon('marker')
+                        | Украина
+                      .item__city Курская обл., Комсомольский р-н, с. Чернево
+                    .item__share-favorite
+                      a.button.button--square-small.js-modal-open.js-share(href="#share" title="Поделиться" data-post-url="http://dalab.ru")
+                        +icon('share')
+                      button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                        +icon('heart')
+
+              .items__item
+                .item
+                  .item__inner
+                    .item__inner-thumb
+                      a.item__thumb.item__thumb--full(href="audio.html" title="А что ж ты что-то там где-то")
+                        img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                    .item__inner-content
+                      .item__date-number
+                        .item__date
+                          +icon('calendar')
+                          | 22.01.2022
+                        .item__number Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      a.item__title.item__title--full(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                      .item__info
+                        span Былина
+                      .item__author.item__author--mt
+                        span
+                          b="Ансамбль: "
+                          a(href="author.html" title="“Братчина”") “Братчина”
+                        span
+                          b="Автор: "
+                          a(href="author.html" title="Купников В.Г.") Купников В.Г.
+                      .item__player.item__player--full
+                        .audio-player
+                          audio.audio-player__audio(controls)
+                            source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                          .audio-player__play-pause
+                            button.audio-player__play(type="button" aria-label="Плей/пауза")
+                              +icon('play')
+                          .audio-player__progress
+                            span.audio-player__progress-line
+                          .audio-player__time
+                            span.audio-player__time-current 0:00
+                            =" / "
+                            span.audio-player__time-all 1:44
+                    .item__inner-location
+                      .item__country
+                        +icon('marker')
+                        | Украина
+                      .item__city Курская обл., Комсомольский р-н, с. Чернево
+                    .item__share-favorite
+                      a.button.button--square-small.js-modal-open.js-share(href="#share" title="Поделиться" data-post-url="http://dalab.ru")
+                        +icon('share')
+                      button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                        +icon('heart')
+              .items__item
+                .item
+                  .item__inner
+                    .item__inner-thumb
+                      a.item__thumb.item__thumb--full.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                        img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                        span.item__play-icon
+                          +icon('play')
+                    .item__inner-content
+                      .item__date-number
+                        .item__date
+                          +icon('calendar')
+                          | 22.01.2022
+                        .item__number Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      a.item__title.item__title--full(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                      .item__info
+                        span Былина
+                      .item__author.item__author--mt
+                        span
+                          b="Ансамбль: "
+                          a(href="author.html" title="“Братчина”") “Братчина”
+                        span
+                          b="Автор: "
+                          a(href="author.html" title="Купников В.Г.") Купников В.Г.
+                      .item__player.item__player--full
+                    .item__inner-location
+                      .item__country
+                        +icon('marker')
+                        | Украина
+                      .item__city Курская обл., Комсомольский р-н, с. Чернево
+                    .item__share-favorite
+                      a.button.button--square-small.js-modal-open.js-share(href="#share" title="Поделиться" data-post-url="http://dalab.ru")
+                        +icon('share')
+                      button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                        +icon('heart')
+
+            ul.pagination
+              li.pagination__item.pagination__item--prev
+                a.pagination__link(href="#" title="Предыдущая страница")
+                  +icon('arrow-left', 'pagination__arrow')
+              li.pagination__item.current
+                a.pagination__link(href="#" title="Страница 1") 1
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 2") 2
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 3") 3
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 4") 4
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 5") 5
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 6") ...
+              li.pagination__item
+                a.pagination__link(href="#" title="Страница 10") 10
+              li.pagination__item.pagination__item--next
+                a.pagination__link(href="#" title="Следующая страница")
+                  +icon('arrow-right', 'pagination__arrow')
+          .collections__sidebar
+            .collections__filter.collections__filter--list
+              include ../components/filter/filter
+
+block footer
+  include ../components/footer/footer

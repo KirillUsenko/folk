@@ -1,0 +1,74 @@
+.subscribe {
+  padding: 36px 0 40px;
+  line-height: 1.3;
+  color: #ffffff;
+  background-color: #88935F;
+
+  &__form {
+    position: relative;
+    margin: 20px 0 0;
+  }
+
+  &__field {
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 0 60px 0 22px;
+    font-size: inherit;
+    font-family: inherit;
+    border: 0;
+    border-radius: 50px;
+  }
+
+  &__button {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    width: 44px;
+    padding: 0;
+    color: $yellow-green;
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    background-color: $y-g-3;
+    transition: background-color $transition-time;
+
+    &:hover {
+      background-color: rgba($y-g-3, 0.8);
+    }
+
+    &-icon {
+      width: 55%;
+      height: 55%;
+    }
+  }
+}
+
+@media all and (min-width: $screen-sm) {
+  .subscribe {
+    padding: 40px 0;
+
+    &__form {
+      margin: 0;
+    }
+  }
+}
+
+@media all and (min-width: $screen-lg) {
+  .subscribe {
+
+    &__field {
+      height: 60px;
+      padding: 0 70px 0 28px;
+    }
+
+    &__button {
+      height: 54px;
+      width: 54px;
+    }
+  }
+}

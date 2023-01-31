@@ -1,0 +1,105 @@
+.tippy-box[data-animation=fade][data-state=hidden] {
+  opacity: 0
+}
+
+[data-tippy-root] {
+  max-width: calc(70vw - 10px);
+}
+
+.tippy-box {
+  position: relative;
+  background-color: #ffffff;
+  color: $grey;
+  border-radius: 8px;
+  border: 1px solid $very-light-grey;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: normal;
+  outline: 0;
+  transition-property: transform,visibility,opacity;
+  box-shadow: $shadow;
+}
+
+.tippy-box[data-placement^=top]>.tippy-arrow {
+  bottom: 0
+}
+
+.tippy-box[data-placement^=top]>.tippy-arrow:before {
+  bottom: -13px;
+  left: 7px;
+  transform: rotate(135deg);
+  border-right: 1px solid $very-light-grey;
+  border-top: 1px solid $very-light-grey;
+  transform-origin: center top
+}
+
+.tippy-box[data-placement^=bottom]>.tippy-arrow {
+  top: 0
+}
+
+.tippy-box[data-placement^=bottom]>.tippy-arrow:before {
+  top: -7px;
+  left: 7px;
+  transform: rotate(-45deg);
+  border-right: 1px solid $very-light-grey;
+  border-top: 1px solid $very-light-grey;
+  transform-origin: center bottom
+}
+
+.tippy-box[data-inertia][data-state=visible] {
+  transition-timing-function: cubic-bezier(.54,1.5,.38,1.11)
+}
+
+.tippy-arrow {
+  width: 16px;
+  height: 16px;
+  color: #333
+}
+
+.tippy-arrow:before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+}
+
+.tippy-content {
+  position: relative;
+  padding: 8px 12px;
+  z-index: 1;
+
+  a {
+    color: $y-g-2;
+    border-bottom: 1px solid rgba($y-g-2, 0.3);
+
+    &:hover {
+      color: $dark-green;
+      border-bottom-color: rgba($dark-green, 0.2);
+    }
+  }
+}
+
+@media all and (min-width: $screen-sm) {
+  [data-tippy-root] {
+    max-width: 240px;
+  }
+
+  .tippy-content {
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+}
+
+@media all and (min-width: $screen-lg) {
+  [data-tippy-root] {
+    max-width: 280px;
+  }
+
+  .tippy-content {
+    font-size: 16px;
+    padding: 16px 20px;
+  }
+}

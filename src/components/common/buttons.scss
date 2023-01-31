@@ -1,0 +1,391 @@
+.button {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-time;
+  white-space: nowrap;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &[type='submit'] {
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      background-color: $y-g-2;
+      background-image: url('../img/svg/loader.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: auto 100%;
+    }
+  }
+
+  &.loading {
+    cursor: default;
+    opacity: 1;
+
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  &--large {
+    height: 52px;
+    padding: 0 30px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &--pre-large {
+    height: 44px;
+    padding: 0 26px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  &--medium {
+    height: 42px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 400;
+
+    &-square {
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      font-size: 15px;
+    }
+  }
+
+  &--default {
+    height: 36px;
+    padding: 0 20px;
+    font-size: 16px;
+  }
+
+  &--square-small {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: $light-grey;
+
+    &:not(:disabled):hover {
+      color: $yellow-green;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &--square-x-small {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: $light-grey;
+
+    &:not(:disabled):hover {
+      color: $yellow-green;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &--square-medium {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: $light-grey;
+
+    &:not(:disabled):hover {
+      color: $yellow-green;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--small {
+    height: 30px;
+    padding: 0 12px;
+    font-size: 16px;
+    border-radius: 30px;
+
+    &-square {
+      height: 30px;
+      width: 30px;
+      border-radius: 30px;
+    }
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--grey {
+    color: $blue-grey;
+    border: 1px solid $light-grey;
+    background: none;
+
+    &:not(:disabled):hover {
+      color: $yellow-green;
+      border-color: $y-g-2;
+    }
+
+    &.current {
+      color: #ffffff;
+      background-color: $y-g-2;
+      border-color: transparent;
+    }
+  }
+
+  &--grey-link {
+    color: $blue-grey;
+    border: 0;
+    background: none;
+
+    &:not(:disabled):hover {
+      color: $yellow-green;
+    }
+  }
+
+  &--square-default {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  &--copy {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: $blue-grey;
+    font-size: 1.2em;
+
+    &:not(:disabled):hover {
+      color: $dark-green;
+    }
+  }
+
+  &--shadow {
+    box-shadow: $shadow;
+  }
+
+  &--green-clear {
+    color: $dark-grey;
+    border-radius: 200px;
+    border: 1px solid $y-g-2;
+    background-color: transparent;
+
+    &:not(:disabled):hover {
+      color: #ffffff;
+      background-color: $y-g-2;
+
+      svg {
+        color: inherit;
+      }
+    }
+
+    &-pc {
+      padding: 0;
+      color: $y-g-2;
+
+      &:hover {
+        color: $dark-green;
+      }
+
+      svg {
+        color: inherit;
+      }
+    }
+  }
+
+  &--green {
+    color: #fff;
+    border-radius: 200px;
+    background-color: $y-g-2;
+    border: 0;
+
+    &:not(:disabled):hover {
+      background-color: $yellow-green;
+    }
+  }
+
+  &--white {
+    color: $dark-grey;
+    border-radius: 200px;
+    background-color: #ffffff;
+    border: 0;
+
+    &:not(:disabled):hover {
+      color: $y-g-2;
+    }
+  }
+
+  &--white-grey {
+    color: $grey;
+    border-radius: 200px;
+    background-color: #ffffff;
+    border: 0;
+
+    &:not(:disabled):hover {
+      color: $y-g-2;
+    }
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+
+    &--left {
+      margin: 0 0.6em 0 0;
+
+      &-small {
+        margin: 0 0.3em 0 0;
+      }
+    }
+
+    &--default {
+      width: 0.9em;
+      height: 0.9em;
+    }
+
+    &--medium {
+      width: 1em;
+      height: 1em;
+    }
+
+    &--large {
+      width: 1.2em;
+      height: 1.2em;
+    }
+
+    &--grey {
+      color: $blue-grey;
+    }
+  }
+}
+
+@media all and (min-width: $screen-md) {
+  .button {
+
+    &--green-clear {
+
+      &-pc {
+        padding: 0 20px;
+        color: $dark-grey;
+        border-radius: 200px;
+        border: 1px solid $y-g-2;
+        background-color: transparent;
+
+        &:hover {
+          color: #ffffff;
+          background-color: $y-g-2;
+
+          svg {
+            color: inherit;
+          }
+        }
+
+        svg {
+          color: $blue-grey;
+        }
+      }
+    }
+
+    &--square-medium {
+      width: 40px;
+      height: 40px;
+
+      svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .button {
+
+    &--square-small {
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &--square-default {
+      width: 32px;
+      height: 32px;
+      font-size: 16px;
+    }
+  }
+}
+
+@media all and (min-width: $screen-lg) {
+  .button {
+
+    &--large {
+      height: 60px;
+      padding: 0 35px;
+      font-size: 18px;
+    }
+
+    &--pre-large {
+      height: 52px;
+      padding: 0 32px;
+      font-size: 18px;
+    }
+
+    &--medium {
+      height: 48px;
+      padding: 0 28px;
+      font-size: 18px;
+    }
+
+    &--default {
+      height: 40px;
+      padding: 0 24px;
+      font-size: 18px;
+    }
+
+    &--square-medium {
+      width: 48px;
+      height: 48px;
+
+      svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    &--square-default {
+      width: 36px;
+      height: 36px;
+      font-size: 18px;
+    }
+  }
+}

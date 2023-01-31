@@ -1,0 +1,411 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Правила сайта'
+  - var title = 'Мир фолка'
+
+block header
+  include ../components/header/header
+
+block content
+  .page
+    .container
+      .page__breadcrumbs
+        ol.breadcrumbs(itemscope="" itemtype="https://schema.org/BreadcrumbList")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="index.html" title="Главная")
+              span(itemprop="name") Главная
+              meta(itemprop="position" content="0")
+          li.breadcrumbs__item
+            span Личный кабинет
+      .page__title
+        h1.reset Личный кабинет
+    .lk-nav__wrap
+      .container
+        nav.lk-nav
+          ul.lk-nav__list
+            li.lk-nav__item.current
+              a.lk-nav__link(href="materials.html" title="Мои материалы")
+                +icon('materials', 'lk-nav__icon lk-nav__icon--materials')
+                span.lk-nav__text Мои материалы
+            li.lk-nav__item
+              a.lk-nav__link(href="profile.html" title="Личные данные")
+                +icon('lk-user', 'lk-nav__icon lk-nav__icon--user')
+                span.lk-nav__text Личные данные
+            li.lk-nav__item
+              a.lk-nav__link(href="add-material.html" title="Добавить материал")
+                +icon('add-material', 'lk-nav__icon lk-nav__icon--add-material')
+                span.lk-nav__text Добавить материал
+            li.lk-nav__item
+              a.lk-nav__link(href="favorites.html" title="Избранное")
+                +icon('favorites', 'lk-nav__icon lk-nav__icon--favorites')
+                span.lk-nav__text Избранное
+            li.lk-nav__item
+              a.lk-nav__link(href="download.html" title="Скачивание")
+                +icon('card', 'lk-nav__icon lk-nav__icon--download')
+                span.lk-nav__text Скачивание
+    .page__content.section--pt-medium
+      .container
+        .materials
+          form.form(action="#" method="get")
+            #materials-search.materials__group
+              .filter__head Поиск
+                button.filter__close.js-filter-toggle(type="button" data-href="#materials-search" aria-label="Закрыть фильтры")
+              .filter__body.filter__body--container
+                .materials__search
+                  .row
+                    .col-xs-12.col-md-3
+                      .form__field
+                        label.form__label.form__label--bold(for="search-name") Поиск по наименованию
+                        .form__field-wrap
+                          +icon('search', 'form__field-icon form__field-icon--left')
+                          input#search-name.form__input.form__input--search(type="text" name="name" placeholder="Введите название")
+                    .col-xs-12.col-md-3
+                      .form__field
+                        label.form__label.form__label--bold(for="search-single") Поиск по исполнителю
+                        .form__field-wrap
+                          +icon('search', 'form__field-icon form__field-icon--left')
+                          input#search-single.form__input.form__input--search(type="text" name="single" placeholder="Введите имя")
+                    .col-xs-12.col-md-3
+                      .form__field
+                        label.form__label.form__label--bold(for="search-type") Тип записи
+                        .form__field-wrap
+                          select.form__select.form__select--default(name="type")
+                            option(value="" data-placeholder="true") Выберите тип записи
+                            option(value="Песня") Песня
+                            option(value="Танец") Танец
+                            option(value="Хоровод") Хоровод
+                            option(value="Пляска") Пляска
+                            option(value="Пляска") Пляска
+                            option(value="Игра") Игра
+                            option(value="Наигрыш на музыкальных инструментах") Наигрыш на музыкальных инструментах
+                            option(value="Плач, Причетание") Плач, Причетание
+                            option(value="Обряд") Обряд
+                            option(value="Песня") Песня
+                            option(value="Танец") Танец
+                            option(value="Хоровод") Хоровод
+                            option(value="Пляска") Пляска
+                            option(value="Пляска") Пляска
+                            option(value="Игра") Игра
+                            option(value="Наигрыш на музыкальных инструментах") Наигрыш на музыкальных инструментах
+                            option(value="Плач, Причетание") Плач, Причетание
+                            option(value="Обряд") Обряд
+                    .col-xs-12.col-md-3
+                      .form__field
+                        label.form__label.form__label--bold(for="search-status") Статус
+                        .form__field-wrap
+                          select#search-status.form__select.form__select--default(name="status")
+                            option(value="" data-placeholder="true") Выберите статус
+                            option(value="Подтверждена") Подтверждена
+                            option(value="Не подтверждена") Не подтверждена
+                            option(value="На проверке") На проверке
+                .materials__sort
+                  .materials__sort-item Наименование
+                    .materials__sort-button
+                      a.button.button--small.button--grey(href="#" title="Сортировать по наименованию А-Я")
+                        +icon('arrow-sort-down', 'button__icon button__icon--default button__icon--left-small')
+                        span.button__text А-Я
+                  .materials__sort-item Исполнитель
+                    .materials__sort-button
+                      a.button.button--small.button--grey.current(href="#" title="Сортировать по исполнителю А-Я")
+                        +icon('arrow-sort-down', 'button__icon button__icon--default button__icon--left-small')
+                        span.button__text А-Я
+                  .materials__sort-item Регион
+                    .materials__sort-button
+                      a.button.button--small.button--grey(href="#" title="Сортировать по региону А-Я")
+                        +icon('arrow-sort-down', 'button__icon button__icon--default button__icon--left-small')
+                        span.button__text А-Я
+                  .materials__sort-item Дата записи
+                    .materials__sort-button
+                      a.button.button--small-square.button--grey(href="#" title="Сортировать по дате записи А-Я")
+                        +icon('arrow-sort-down', 'button__icon button__icon--default')
+                  .materials__sort-item Дата добавления
+                    .materials__sort-button
+                      a.button.button--small-square.button--grey(href="#" title="Сортировать по дате добавления А-Я")
+                        +icon('arrow-sort-down', 'button__icon button__icon--default')
+          .collections__toggle-types.collections__toggle-types--list
+            .collections__toggle-type
+              a.button.button--default.button--green-clear-pc(href="map.html" title="Показать на карте")
+                +icon('map', 'button__icon button__icon--large button__icon--grey button__icon--left')
+                | Показать на карте
+            .collections__toggle-type.collections__toggle-type--md
+              a.button.button--default.button--green-clear-pc.js-filter-toggle(href="#materials-search" title="Фильтры")
+                +icon('filter', 'button__icon button__icon--grey button__icon--medium button__icon--left')
+                | Фильтры
+          .collections__list.items
+            .row
+              .col-xs-12.col-sm-6.col-md-12
+                .items__item
+                  .item
+                    a.item__title.item__title--large(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                    .item__type Быль, Бывальщина, Быличка или Предание
+                    .item__inner.item__inner--small
+                      .item__inner-thumb-small
+                        a.item__thumb.item__thumb--full(href="audio.html" title="А что ж ты что-то там где-то")
+                          img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                      .item__inner-content.item__inner-content--column
+                        .item__single
+                          +icon('audio')
+                          span
+                            b="Исполнитель "
+                            ="Ансамбль“Братчина”"
+                        .item__player.item__player--full.item__player--bottom
+                          .audio-player
+                            audio.audio-player__audio(controls)
+                              source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                            .audio-player__play-pause
+                              button.audio-player__play(type="button" aria-label="Плей/пауза")
+                                +icon('play')
+                            .audio-player__progress
+                              span.audio-player__progress-line
+                            .audio-player__time
+                              span.audio-player__time-current 0:00
+                              =" / "
+                              span.audio-player__time-all 1:44
+                        .item__number.item__number--medium Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      .item__inner-info.item__inner-info--location
+                        .item__info-element
+                          +icon('marker-stroke')
+                          span
+                            b="Местоположение"
+                            ="Украина, Курская обл., Комсомольский р-н, с. Чернево"
+                      .item__inner-info.item__inner-info--dates
+                        .item__info-element
+                          +icon('calendar')
+                          span
+                            b="Дата записи"
+                            ="31.12.1972"
+                        .item__info-element
+                          +icon('calendar')
+                          span
+                            b="Дата добавления"
+                            ="31.12.2010"
+                      .item__inner-info.item__inner-info--status
+                        .item__info-element
+                          +icon('status')
+                          span
+                            b="Статус"
+                            ="На проверке"
+                    .item__edit-delete
+                      a.button.button--square-default.button--grey-link(href="#" title="Редактировать")
+                        +icon('edit', 'button__icon button__icon--large')
+                      a.button.button--square-default.button--grey-link(href="#" title="Удалить")
+                        +icon('close', 'button__icon button__icon--large')
+              .col-xs-12.col-sm-6.col-md-12
+                .items__item
+                  .item
+                    a.item__title.item__title--large(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                    .item__type Быль, Бывальщина, Быличка или Предание
+                    .item__inner.item__inner--small
+                      .item__inner-thumb-small
+                        a.item__thumb.item__thumb--full(href="audio.html" title="А что ж ты что-то там где-то")
+                          img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                          span.item__play-icon
+                            +icon('play')
+                      .item__inner-content.item__inner-content--column
+                        .item__single
+                          +icon('video')
+                          span
+                            b="Исполнитель "
+                            ="Ансамбль“Братчина”"
+                        .item__number.item__number--medium Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      .item__inner-info.item__inner-info--location
+                        .item__info-element
+                          +icon('marker-stroke')
+                          span
+                            b="Местоположение"
+                            ="Украина, Курская обл., Комсомольский р-н, с. Чернево"
+                      .item__inner-info.item__inner-info--dates
+                        .item__info-element
+                          +icon('calendar')
+                          span
+                            b="Дата записи"
+                            ="31.12.1972"
+                        .item__info-element
+                          +icon('calendar')
+                          span
+                            b="Дата добавления"
+                            ="31.12.2010"
+                      .item__inner-info.item__inner-info--status
+                        .item__info-element
+                          +icon('status')
+                          span
+                            b="Статус"
+                            ="На проверке"
+                    .item__edit-delete
+                      a.button.button--square-default.button--grey-link(href="#" title="Редактировать")
+                        +icon('edit', 'button__icon button__icon--large')
+                      a.button.button--square-default.button--grey-link(href="#" title="Удалить")
+                        +icon('close', 'button__icon button__icon--large')
+              .col-xs-12.col-sm-6.col-md-12
+                .items__item
+                  .item
+                    a.item__title.item__title--large(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                    .item__type Быль, Бывальщина, Быличка или Предание
+                    .item__inner.item__inner--small
+                      .item__inner-thumb-small
+                        a.item__thumb.item__thumb--full(href="audio.html" title="А что ж ты что-то там где-то")
+                          img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                          span.item__play-icon
+                            +icon('play')
+                      .item__inner-content.item__inner-content--column
+                        .item__single
+                          +icon('video')
+                          span
+                            b="Исполнитель "
+                            ="Ансамбль“Братчина”"
+                        .item__number.item__number--medium Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      .item__inner-info.item__inner-info--location
+                        .item__info-element
+                          +icon('marker-stroke')
+                          span
+                            b="Местоположение"
+                            ="Украина, Курская обл., Комсомольский р-н, с. Чернево"
+                      .item__inner-info.item__inner-info--dates
+                        .item__info-element
+                          +icon('calendar')
+                          span
+                            b="Дата записи"
+                            ="31.12.1972"
+                        .item__info-element
+                          +icon('calendar')
+                          span
+                            b="Дата добавления"
+                            ="31.12.2010"
+                      .item__inner-info.item__inner-info--status
+                        .item__info-element
+                          +icon('status')
+                          span
+                            b="Статус"
+                            ="На проверке"
+                    .item__edit-delete
+                      a.button.button--square-default.button--grey-link(href="#" title="Редактировать")
+                        +icon('edit', 'button__icon button__icon--large')
+                      a.button.button--square-default.button--grey-link(href="#" title="Удалить")
+                        +icon('close', 'button__icon button__icon--large')
+              .col-xs-12.col-sm-6.col-md-12
+                .items__item
+                  .item
+                    a.item__title.item__title--large(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                    .item__type Быль, Бывальщина, Быличка или Предание
+                    .item__inner.item__inner--small
+                      .item__inner-thumb-small
+                        a.item__thumb.item__thumb--full(href="audio.html" title="А что ж ты что-то там где-то")
+                          img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                          span.item__play-icon
+                            +icon('play')
+                      .item__inner-content.item__inner-content--column
+                        .item__single
+                          +icon('video')
+                          span
+                            b="Исполнитель "
+                            ="Ансамбль“Братчина”"
+                        .item__number.item__number--medium Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      .item__inner-info.item__inner-info--location
+                        .item__info-element
+                          +icon('marker-stroke')
+                          span
+                            b="Местоположение"
+                            ="Украина, Курская обл., Комсомольский р-н, с. Чернево"
+                      .item__inner-info.item__inner-info--dates
+                        .item__info-element
+                          +icon('calendar')
+                          span
+                            b="Дата записи"
+                            ="31.12.1972"
+                        .item__info-element
+                          +icon('calendar')
+                          span
+                            b="Дата добавления"
+                            ="31.12.2010"
+                      .item__inner-info.item__inner-info--status
+                        .item__info-element
+                          +icon('status')
+                          span
+                            b="Статус"
+                            ="На проверке"
+                    .item__edit-delete
+                      a.button.button--square-default.button--grey-link(href="#" title="Редактировать")
+                        +icon('edit', 'button__icon button__icon--large')
+                      a.button.button--square-default.button--grey-link(href="#" title="Удалить")
+                        +icon('close', 'button__icon button__icon--large')
+              .col-xs-12.col-sm-6.col-md-12
+                .items__item
+                  .item
+                    a.item__title.item__title--large(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                    .item__type Быль, Бывальщина, Быличка или Предание
+                    .item__inner.item__inner--small
+                      .item__inner-thumb-small
+                        a.item__thumb.item__thumb--full(href="audio.html" title="А что ж ты что-то там где-то")
+                          img.item__img(src="img/audio-full.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                          span.item__play-icon
+                            +icon('play')
+                      .item__inner-content.item__inner-content--column
+                        .item__single
+                          +icon('video')
+                          span
+                            b="Исполнитель "
+                            ="Ансамбль“Братчина”"
+                        .item__number.item__number--medium Номер записи: 12345678
+                          button.button.button--copy(type="button" title="Копировать номер записи" data-id="12345678")
+                            +icon('copy', 'button__icon button__icon--medium')
+                      .item__inner-info.item__inner-info--location
+                        .item__info-element
+                          +icon('marker-stroke')
+                          span
+                            b="Местоположение"
+                            ="Украина, Курская обл., Комсомольский р-н, с. Чернево"
+                      .item__inner-info.item__inner-info--dates
+                        .item__info-element
+                          +icon('calendar')
+                          span
+                            b="Дата записи"
+                            ="31.12.1972"
+                        .item__info-element
+                          +icon('calendar')
+                          span
+                            b="Дата добавления"
+                            ="31.12.2010"
+                      .item__inner-info.item__inner-info--status
+                        .item__info-element
+                          +icon('status')
+                          span
+                            b="Статус"
+                            ="На проверке"
+                    .item__edit-delete
+                      a.button.button--square-default.button--grey-link(href="#" title="Редактировать")
+                        +icon('edit', 'button__icon button__icon--large')
+                      a.button.button--square-default.button--grey-link(href="#" title="Удалить")
+                        +icon('close', 'button__icon button__icon--large')
+          ul.pagination
+            li.pagination__item.pagination__item--prev
+              a.pagination__link(href="#" title="Предыдущая страница")
+                +icon('arrow-left', 'pagination__arrow')
+            li.pagination__item.current
+              a.pagination__link(href="#" title="Страница 1") 1
+            li.pagination__item
+              a.pagination__link(href="#" title="Страница 2") 2
+            li.pagination__item
+              a.pagination__link(href="#" title="Страница 3") 3
+            li.pagination__item
+              a.pagination__link(href="#" title="Страница 4") 4
+            li.pagination__item
+              a.pagination__link(href="#" title="Страница 5") 5
+            li.pagination__item
+              a.pagination__link(href="#" title="Страница 6") ...
+            li.pagination__item
+              a.pagination__link(href="#" title="Страница 10") 10
+            li.pagination__item.pagination__item--next
+              a.pagination__link(href="#" title="Следующая страница")
+                +icon('arrow-right', 'pagination__arrow')
+
+block footer
+  include ../components/footer/footer

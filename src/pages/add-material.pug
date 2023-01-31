@@ -1,0 +1,1046 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Правила сайта'
+  - var title = 'Мир фолка'
+
+block header
+  include ../components/header/header
+
+block content
+  .page
+    .container
+      .page__breadcrumbs
+        ol.breadcrumbs(itemscope="" itemtype="https://schema.org/BreadcrumbList")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="index.html" title="Главная")
+              span(itemprop="name") Главная
+              meta(itemprop="position" content="0")
+          li.breadcrumbs__item
+            span Личный кабинет
+      .page__title
+        h1.reset Личный кабинет
+    .lk-nav__wrap
+      .container
+        nav.lk-nav
+          ul.lk-nav__list
+            li.lk-nav__item
+              a.lk-nav__link(href="materials.html" title="Мои материалы")
+                +icon('materials', 'lk-nav__icon lk-nav__icon--materials')
+                span.lk-nav__text Мои материалы
+            li.lk-nav__item
+              a.lk-nav__link(href="profile.html" title="Личные данные")
+                +icon('lk-user', 'lk-nav__icon lk-nav__icon--user')
+                span.lk-nav__text Личные данные
+            li.lk-nav__item.current
+              a.lk-nav__link(href="add-material.html" title="Добавить материал")
+                +icon('add-material', 'lk-nav__icon lk-nav__icon--add-material')
+                span.lk-nav__text Добавить материал
+            li.lk-nav__item
+              a.lk-nav__link(href="favorites.html" title="Избранное")
+                +icon('favorites', 'lk-nav__icon lk-nav__icon--favorites')
+                span.lk-nav__text Избранное
+            li.lk-nav__item
+              a.lk-nav__link(href="download.html" title="Скачивание")
+                +icon('card', 'lk-nav__icon lk-nav__icon--download')
+                span.lk-nav__text Скачивание
+    .page__content.section--pt-medium
+      form.add-material(action="#" method="post")
+        .container
+          .add-material__title Загрузите аудио или видео*
+          .add-material__subtitle Допустимые форматы видео: MP4, AVI, WMV, MOV, 3GP, FLV, MPEG-1,2, WebM
+          .add-material__subtitle Допустимые форматы аудио: MP3
+          .row
+            .col-xs-12.col-sm-6.col-md-4
+              .add-material__upload.visually-hidden
+                .upload-file
+                  input.upload-file__input(id="file" type="file" name="file" accept="video/*, audio/*")
+                  label.upload-file__zone.loading(for="file")
+                    .upload-file__zone-info
+                      .upload-file__zone-icon
+                        +icon('upload')
+                      .upload-file__zone-text.visually-hidden
+                        div="Перетащите и отпустите сюда изображение"
+                        br
+                        div="Или нажмите "
+                          span здесь
+                          =" чтобы начать"
+                      .upload-file__zone-status
+                        .upload-file__zone-percent 18%
+                        .upload-file__zone-progress
+                          .upload-file__zone-progress-line(style="width:18%;")
+                        .upload-file__zone-loading Загрузка...
+              #uploaded-audio.uploaded-file
+                +icon('audio', 'uploaded-file__icon')
+                .uploaded-file__title
+                  .uploaded-file__name Ой вы, кони Ой вы, кони Ой вы, кони Ой вы, кони Ой вы, кони
+                  .uploaded-file__extension .MP3
+                .uploaded-file__remove
+                  button.button.button--square-default.button--grey-link(data-remove-file="audio" type="button" aria-label="Удалить файл")
+                    +icon('close', 'button__icon button__icon--medium')
+          .add-material__field
+            .add-material__title Добавьте изображение-обложку для вашей записи
+            .add-material__subtitle Допустимые форматы изображения: JPG, GIF, TIF, PNG
+            .row
+              .col-xs-12.col-sm-6.col-md-4
+                .add-material__upload
+                  .upload-file
+                    input.upload-file__input(id="picture" type="file" name="picture" accept="image/*")
+                    label.upload-file__zone(for="picture")
+                      .upload-file__zone-info
+                        .upload-file__zone-icon
+                          +icon('upload')
+                        .upload-file__zone-text
+                          div="Перетащите и отпустите сюда изображение"
+                          br
+                          div="Или нажмите "
+                            span здесь
+                            =" чтобы начать"
+                        .upload-file__zone-status.visually-hidden
+                          .upload-file__zone-percent 18%
+                          .upload-file__zone-progress
+                            .upload-file__zone-progress-line(style="width:18%;")
+                          .upload-file__zone-loading Загрузка...
+                #uploaded-picture.visually-hidden
+                  .uploaded-file
+                    img.uploaded-file__img(src="img/audio-full.jpg" alt="" width="481" height="321")
+                    .uploaded-file__remove.uploaded-file__remove--absolute
+                      button.button.button--square-default.button--grey-link(data-remove-file="picture" type="button" aria-label="Удалить файл")
+                        +icon('close', 'button__icon button__icon--medium')
+        .section.section--pt-medium
+          .add-material__title.add-material__title--milk
+            .container Общие сведения
+          .section.section--pt-medium
+            .container
+              .add-material__label.add-material__label--reset
+                ="1. Место бытования традиции* "
+                span.question.question--default(data-tippy)
+                  +icon('question')
+                span.visually-hidden Если ваше сообщение касается конкретной записи
+              .row
+                .col-xs-12.col-sm-5
+                  .add-material__group
+                    .form__field.form__field--large
+                      label.radio
+                        input.radio__input(type="radio" name="location-type" value="map" checked)
+                        span.radio__icon
+                        span.radio__text Известно точно
+                    a.button.button--pre-large.button--green(href="#" title="Указать на карте")
+                      +icon('marker-stroke', 'button__icon button__icon--large button__icon--left')
+                      ="Указать на карте"
+                .col-xs-12.col-sm-7
+                  .add-material__group
+                    .form__field.form__field--large
+                      label.radio
+                        input.radio__input(type="radio" name="location-type" value="map")
+                        span.radio__icon
+                        span.radio__text Известно не точно
+                    input.form__input.form__input--large(type="text" name="address" placeholder="Введите название области или региона")
+                .col-xs-12.col-sm-8
+                  .add-material__field
+                    .add-material__label
+                      ="2. Наименование записи* "
+                      span.question.question--default(data-tippy)
+                        +icon('question')
+                      span.visually-hidden Если ваше сообщение касается конкретной записи
+                    input.form__input.form__input--large(type="text" name="address" placeholder="Введите название области или региона")
+                .col-xs-12.col-sm-4
+                  .add-material__field
+                    .add-material__label
+                      ="3. Год записи* "
+                      span.question.question--default(data-tippy)
+                        +icon('question')
+                      span.visually-hidden Если ваше сообщение касается конкретной записи
+                    select.form__select.form__select--large(name="type")
+                      option(value="" data-placeholder="true") Выберете год записи
+                      option(value="1900") 1900
+                      option(value="1901") 1901
+                      option(value="1902") 1902
+                      option(value="1903") 1903
+                      option(value="1904") 1904
+                      option(value="1905") 1905
+              .add-material__field
+                .add-material__label
+                  ="4. Что на записи "
+                  span.question.question--default(data-tippy)
+                    +icon('question')
+                  span.visually-hidden Если ваше сообщение касается конкретной записи
+                .add-material__group
+                  .row
+                    .col-xs-12.col-sm-6.col-md-3
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Песня
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Танец
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Хоровод
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Пляска
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Игра
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Плач, Причетание
+                    .col-xs-12.col-sm-6.col-md-3
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Частушка
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Пословица или поговорка
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Потешка или прибаутка
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Считалка
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Игра
+                    .col-xs-12.col-sm-6.col-md-3
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Обряд
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Заговор
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Былина
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Сказка или небылица
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Театр или представление, ряжение
+                    .col-xs-12.col-sm-6.col-md-3
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Загадка
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Бой или драка
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Быль, бывальщина, быличка или предание
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Мастерство изготовления или умение
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Наигрыш на музыкальных инструментах
+        .section.section--pt-medium
+          .add-material__title.add-material__title--milk
+            .container Исполнитель
+          .section.section--pt-medium
+            .container
+              .row
+                .col-xs-12.col-sm-5.col-md-4
+                  .add-material__label
+                    ="Название коллектива "
+                    span.question.question--default(data-tippy)
+                      +icon('question')
+                    span.visually-hidden Если ваше сообщение касается конкретной записи
+                  input.form__input.form__input--large(type="text" name="collective" placeholder="Например: ансамбль “Душечка”")
+              .add-material__field
+                .tabs
+                  .tabs__links
+                    .tabs__links-wrap
+                      button.tabs__link.tabs__link--default.current(type="button") Исполнитель 1
+                      button.tabs__link.tabs__link--add(type="button")
+                        span.tabs__link-plus +
+                        ="Добавить исполнителя"
+                  .tabs__items
+                    .tabs__item.current
+                      .row
+                        .col-xs-12.col-sm-5.col-md-5.col-lg-4
+                          .add-material__field
+                            .add-material__label
+                              ="Имя исполнителя "
+                              span.question.question--default(data-tippy)
+                                +icon('question')
+                              span.visually-hidden Если ваше сообщение касается конкретной записи
+                            input.form__input.form__input--large(type="text" name="collective" placeholder="Например: Венедикт Ерофеев")
+                        .col-xs-12.col-sm-4.col-md-3
+                          .add-material__field
+                            .add-material__label
+                              ="Год рождения "
+                              span.question.question--default(data-tippy)
+                                +icon('question')
+                              span.visually-hidden Если ваше сообщение касается конкретной записи
+                            select.form__select.form__select--large(name="type")
+                              option(value="" data-placeholder="true") Выберете год
+                              option(value="1900") 1900
+                              option(value="1901") 1901
+                              option(value="1902") 1902
+                              option(value="1903") 1903
+                              option(value="1904") 1904
+                              option(value="1905") 1905
+                        .col-xs-12.col-md-9.col-lg-8
+                          .add-material__field
+                            .add-material__label
+                              ="Место рождения: страна, край, область, населенный пункт "
+                              span.question.question--default(data-tippy)
+                                +icon('question')
+                              span.visually-hidden Если ваше сообщение касается конкретной записи
+                            input.form__input.form__input--large(type="text" name="collective" placeholder="Например: Россия, Краснодарский край, Ростовская область, Село Малая Костромка")
+                            .add-material__checkbox
+                              label.form__checkbox.form__checkbox--grey
+                                input.form__checkbox-input(type="checkbox" name="t" value="1")
+                                span.form__checkbox-icon
+                                span.form__checkbox-text Совпадает с местом бытования традиции
+                        .col-xs-12.col-md-9.col-lg-8
+                          .add-material__field
+                            .add-material__label
+                              ="Место записи: страна, край, область, населенный пункт "
+                              span.question.question--default(data-tippy)
+                                +icon('question')
+                              span.visually-hidden Если ваше сообщение касается конкретной записи
+                            input.form__input.form__input--large(type="text" name="collective" placeholder="Например: Россия, Краснодарский край, Ростовская область, Село Малая Костромка")
+                            .add-material__checkbox
+                              label.form__checkbox.form__checkbox--grey
+                                input.form__checkbox-input(type="checkbox" name="t" value="1")
+                                span.form__checkbox-icon
+                                span.form__checkbox-text Совпадает с местом бытования традиции
+                      .row
+                        .col-xs-12.col-sm-5.col-md-4.col-lg-3
+                          .add-material__field
+                            .add-material__label
+                              ="Основной язык исполнителя "
+                              span.question.question--default(data-tippy)
+                                +icon('question')
+                              span.visually-hidden Если ваше сообщение касается конкретной записи
+                            input.form__input.form__input--large(type="text" name="collective" placeholder="Например: русский")
+                        .col-xs-12.col-sm-7.col-md-5.col-lg-5
+                          .add-material__field
+                            .add-material__label
+                              ="Основные виды деятельности исполнителя "
+                              span.question.question--default(data-tippy)
+                                +icon('question')
+                              span.visually-hidden Если ваше сообщение касается конкретной записи
+                            input.form__input.form__input--large(type="text" name="collective" placeholder="Например: историк, игра на струнных инструментах")
+                        .col-xs-12.col-md-9.col-lg-8
+                          .add-material__field
+                            .add-material__label
+                              ="Имеется ли у исполнителя образование, близкое к тематике записи, если есть, укажите какое "
+                              span.question.question--default(data-tippy)
+                                +icon('question')
+                              span.visually-hidden Если ваше сообщение касается конкретной записи
+                            input.form__input.form__input--large(type="text" name="collective" placeholder="Например: ХНУМ, Оркестровый факультет, Кафедра народных инструментов")
+        .section.section--pt-medium
+          .add-material__title.add-material__title--milk
+            .container Автор записи
+          .section.section--pt-medium
+            .container
+              .tabs
+                .tabs__links
+                  .tabs__links-wrap
+                    button.tabs__link.tabs__link--default.current(type="button") Автор 1
+                    button.tabs__link.tabs__link--add(type="button")
+                      span.tabs__link-plus +
+                      ="Добавить автора"
+                .tabs__items
+                  .tabs__item.current
+                    .row
+                      .col-xs-12.col-sm-5.col-md-5.col-lg-4
+                        .add-material__field
+                          .add-material__label
+                            ="Имя автора "
+                            span.question.question--default(data-tippy)
+                              +icon('question')
+                            span.visually-hidden Если ваше сообщение касается конкретной записи
+                          input.form__input.form__input--large(type="text" name="collective" placeholder="Например: Венедикт Ерофеев")
+                      .col-xs-12.col-sm-4.col-md-3
+                        .add-material__field
+                          .add-material__label
+                            ="Год рождения "
+                            span.question.question--default(data-tippy)
+                              +icon('question')
+                            span.visually-hidden Если ваше сообщение касается конкретной записи
+                          select.form__select.form__select--large(name="type")
+                            option(value="" data-placeholder="true") Выберете год
+                            option(value="1900") 1900
+                            option(value="1901") 1901
+                            option(value="1902") 1902
+                            option(value="1903") 1903
+                            option(value="1904") 1904
+                            option(value="1905") 1905
+        .section.section--pt-medium
+          .add-material__title.add-material__title--milk
+            .container Привязки
+          .section.section--pt-medium
+            .container
+              .add-material__label
+                ="Род деятельности "
+                span.question.question--default(data-tippy)
+                  +icon('question')
+                span.visually-hidden Если ваше сообщение касается конкретной записи
+              .add-material__group.add-material__group--deliver
+                .row
+                  .col-xs-12.col-sm-6.col-md-3
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Земледелие
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Плавание на судах
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Охота
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Рекрутирование
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Военная служба
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Богослужение
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Ткачество
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Прядение
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Резьба по дереву
+                  .col-xs-12.col-sm-6.col-md-3
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Бурлачество
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Ямщичество
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Строительство
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Кодовство
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Разбой
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Гончарное производство
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Шитье-вышивание
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Уход и воспитание детей
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Роспись
+                  .col-xs-12.col-sm-6.col-md-3
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Каторга и ссылка
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Сбор даров природы
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Лесозаготовки
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Ковка
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Прием пищи
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Приготовление пищи
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Стирка
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Уборка
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Печное дело
+                  .col-xs-12.col-sm-6.col-md-3
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Животноводство, уход за скотом
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Пастушество
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Знахарство и врачевание
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Старание (добыча полезных ископаемых
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Изготовление домашней утвари и инструментов
+                    .add-material__checkbox
+                      label.form__checkbox.form__checkbox--grey
+                        input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Изготовление музыкальных инструментов
+
+              .add-material__field
+                .add-material__label
+                  ="События жизни "
+                  span.question.question--default(data-tippy)
+                    +icon('question')
+                  span.visually-hidden Если ваше сообщение касается конкретной записи
+                .add-material__group.add-material__group--deliver
+                  .row
+                    .col-xs-12.col-sm-4.col-md-2
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Рождение
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Детство
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Юность
+                    .col-xs-12.col-sm-4.col-md-2
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Зрелость
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Сватовство
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Свадьба
+                    .col-xs-12.col-sm-4.col-md-2
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Старость
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Болезнь
+                      .add-material__checkbox
+                        label.form__checkbox.form__checkbox--grey
+                          input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+                          span.form__checkbox-icon
+                          span.form__checkbox-text Смерть
+              .add-material__field
+                .add-material__label
+                  ="Временная привязка"
+                  span.question.question--default(data-tippy)
+                    +icon('question')
+                  span.visually-hidden Если ваше сообщение касается конкретной записи
+                .add-material__group.add-material__group--deliver
+                  .row
+                    .col-xs-12.col-md-6.add-material__calendar
+                      .row
+                        .add-material__calendar-button 
+                          a.button.button--large.button--green-clear.js-modal-open(href="#calendar" title="Указать на карте")
+                            +icon('calendar', 'button__icon button__icon--large button__icon--left')
+                            ="Указать на карте"
+
+                          span.question.question--default(data-tippy)
+                            +icon('question')
+                          span.visually-hidden Выбрать дату
+                .add-material__field
+                  .add-material__label
+                    ="Земледельческий цикл "
+                    span.question.question--default(data-tippy)
+                      +icon('question')
+                    span.visually-hidden Если ваше сообщение касается конкретной записи
+                  .add-material__group.add-material__group--deliver
+                    .row
+                      .col-xs-12.col-sm-4.col-md-2
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Пахота
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Сев
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Покос
+                      .col-xs-12.col-sm-6.col-md-4
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Жатва или сбор
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Хранение урожая
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Борьба с засухой или переувлажнением
+
+                .add-material__field
+                  .add-material__label
+                    ="Музыкальный аккомпанемент "
+                    span.question.question--default(data-tippy)
+                      +icon('question')
+                    span.visually-hidden Если ваше сообщение касается конкретной записи
+                  .add-material__group.add-material__group--deliver
+                    .row
+                      .col-xs-12.col-sm-4.col-md-2
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Нет
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Голосовой
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Гармонь
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Трембита
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Цимбалы
+                      .col-xs-12.col-sm-4.col-md-2
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Колесная лира
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Балалайка
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Домра
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Бандура
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Ложки
+                      .col-xs-12.col-sm-4.col-md-2
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Кобза
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Гусли
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Гудок
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Труба
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Трещетка
+                      .col-xs-12.col-sm-4.col-md-2
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Рожок
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Владимирский рожок
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Волынка
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Свирель
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Пила
+                      .col-xs-12.col-sm-4.col-md-2
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Жалейка
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Свистулька
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Кугиклы
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Скрипка
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Окарина
+                      .col-xs-12.col-sm-4.col-md-2
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Бубен
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Барабан
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Барабанка
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Калюка
+
+                .add-material__field
+                  .add-material__label
+                    ="Возраст участников "
+                    span.question.question--default(data-tippy)
+                      +icon('question')
+                    span.visually-hidden Если ваше сообщение касается конкретной записи
+                  .add-material__group.add-material__group--deliver
+                    .row
+                      .col-xs-12.col-sm-4.col-md-2
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Дети
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Юноши и девушки
+                      .col-xs-12.col-sm-4.col-md-2
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Взрослые
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Пожилые
+
+                .add-material__field
+                  .add-material__label
+                    ="Пол участников "
+                    span.question.question--default(data-tippy)
+                      +icon('question')
+                    span.visually-hidden Если ваше сообщение касается конкретной записи
+                  .add-material__group.add-material__group--deliver
+                    .row
+                      .col-xs-12.col-sm-4.col-md-2
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Мужчины
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Женщины
+                        .add-material__checkbox
+                          label.form__checkbox.form__checkbox--grey
+                            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                            span.form__checkbox-icon
+                            span.form__checkbox-text Все
+
+                .add-material__field
+                  .row
+                    .col-xs-12.col-md-9.col-lg-8
+                      .add-material__label
+                        ="Описание "
+                        span.question.question--default(data-tippy)
+                          +icon('question')
+                        span.visually-hidden Если ваше сообщение касается конкретной записи
+                      textarea.form__textarea(name="description" placeholder="Например: Песня исполняется утром на выгоне скота. Научил петь дядя Иван Николаевич. Сам исполнитель работал в доме культуры")
+                .add-material__field.text-center
+                  button.button.button--large.button--green(type="submit") Добавить материал
+  #calendar.modal.hidden
+    .modal__overlay.js-modal-close
+    .modal__inner.add-material__calendar-modal
+      button.modal__close.js-modal-close(type="button" aria-label="Закрыть модальное окно")
+      .modal__head Календарь
+      .modal__body 
+        form.search-form(action="/" method="get")
+          input.search-form__input.search-form__input--small(type="text" name="search" placeholder="Поиск по календарю")
+          button.search-form__submit.search-form__submit--small(type="submit" aria-label="Искать")
+              +icon('search')
+        
+        .filter__group.add-material__calendar-month
+          .filter__group-title.filter__group-title--trigger(data-accordion-trigger)
+            span Сентябрь
+          .filter__group-content
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                span.form__checkbox-icon
+                span.form__checkbox-text 
+                  ="01.12 Наум-грамотник"
+                  i 
+                    span Мясоедные
+                    span Великопостные деды
+                    span Товстая суббота
+                    span Великопостные деды
+                      i (Укр.)
+                    span Мясоедные
+                    span Товстая суббота
+                      i (Бел.)
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                span.form__checkbox-icon
+                span.form__checkbox-text 02.12 
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                span.form__checkbox-icon
+                span.form__checkbox-text 03.12 
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                span.form__checkbox-icon
+                span.form__checkbox-text 
+                  ="04.12 Варвара"
+                  i 
+                    span Мясоедные
+                    span Великопостные деды
+                    span Товстая суббота
+                    span Великопостные деды
+                      i (Укр.)
+                    span Мясоедные
+                    span Товстая суббота
+                      i (Бел.)
+        .filter__group.add-material__calendar-month
+          .filter__group-title.filter__group-title--trigger(data-accordion-trigger)
+            span Октябрь
+          .filter__group-content
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+                span.form__checkbox-icon
+                span.form__checkbox-text 
+                  ="01.12 Наум-грамотник"
+                  i 
+                    span Мясоедные
+                    span Великопостные деды
+                    span Товстая суббота
+                    span Великопостные деды
+                      i (Укр.)
+                    span Мясоедные
+                    span Товстая суббота
+                      i (Бел.)
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+                span.form__checkbox-icon
+                span.form__checkbox-text 02.12 
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+                span.form__checkbox-icon
+                span.form__checkbox-text 03.12 
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+                span.form__checkbox-icon
+                span.form__checkbox-text 
+                  ="04.12 Варвара"
+                  i 
+                    span Мясоедные
+                    span Великопостные деды
+                    span Товстая суббота
+                    span Великопостные деды
+                      i (Укр.)
+                    span Мясоедные
+                    span Товстая суббота
+                      i (Бел.)
+      .modal__head.add-material__buttons
+        a.button.button--large.add-material__calendar-reset(title="Сбросить")
+          +icon('close', 'button__icon button__icon--large button__icon--left')
+          ="Сбросить" 
+        a.button.button--large.button--green-clear.add-material__calendar-submit(title="Применить")
+          ="Применить" 
+
+block footer
+  include ../components/footer/footer

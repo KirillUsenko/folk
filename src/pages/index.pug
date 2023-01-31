@@ -1,0 +1,839 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Главная'
+  - var title = 'Мир фолка'
+
+block header
+  include ../components/header/header
+
+block content
+  .hero
+    .hero__title
+      h1.reset-mt
+        span.hero__title-text Передадим традицию
+        span.hero__title-text нашим детям
+    .hero__picture
+      img.hero__img(src="img/hero.jpg" alt="Передадим традицию нашим детям")
+    .hero__text
+      #hero-text.hero__text-wrap
+        p Из глубин тысячелетий от поколения к поколению через лишения и испытания ковалась золотая цепь народной традиции. Люди, не знавшие чтения и письма — передавали друг другу красоту и мудрость своей культуры из уст в уста, от сердца к сердцу, каждый добавляя частичку своего таланта.
+        p И вот златая цепь уже в наших руках…Но беспримерные потрясения XX века донесли до нас лишь осколки драгоценности.
+        p Но, кто же из Вас не знает хоть одной загадки, хоть одной детской игры!? А кто помнит колыбельную своей Мамы или сказки своего Деда? А вдруг, у вас есть даже видео этого?! И самое невероятное, — а что, если вы были в этнографических экспедициях или у Вас есть архивные записи?! И Вы готовы поделиться этой драгоценностью или перенять, став ее частью — готовы вернуть народную культуру народу!
+        p Если это так, то добро пожаловать на первый открытый народный архив настоящей культуры — «Мир Фолка»!
+        p
+          ="Традиция, не принадлежащая народу — гибнет. Только "
+          span.text-uppercase.text-green ВСЕ ВМЕСТЕ
+          =" мы не дадим оборваться золотой цепи! Только "
+          span.text-uppercase.text-green ВСЕ ВМЕСТЕ
+          =" мы сохраним Великую культуру для наших потомков!"
+      a.hero__text-link.js-toggle-link(href="#hero-text" title="Показать/скрыть текст" data-in="" data-out="")
+        span Читать далее
+        span.visually-hidden Скрыть текст
+      .hero__button
+        a.button.button--green-clear.button--large(href="register.html" title="Стать участником проекта")
+          +icon('plus', 'button__icon button__icon--left button__icon--default')
+          | Стать участником проекта
+
+  .section.section--pt
+    .container
+      .section__title
+        h2.h1.reset Наши коллекции
+      .row
+        .col-xs-12.col-sm-6
+          a.collection.collection--map(href="collection-map.html" title="Коллекции на карте")
+            span.collection__icon
+              img.collection__svg(src="img/svg/collection-map.svg" alt="Коллекции на карте" loading="lazy" width="162" height="162")
+            span.collection__text.collection__text--map.h5 Коллекции</br>на карте
+        .col-xs-12.col-sm-6
+          a.collection.collection--list(href="collection-list.html" title="Коллекции списком")
+            span.collection__icon
+              img.collection__svg(src="img/svg/collection-list.svg" alt="Коллекции списком" loading="lazy" width="123" height="123")
+            span.collection__text.collection__text--list.h5 Коллекции</br>списком
+
+  .section.section--pt
+    .container
+      .section__title
+        h2.h1.reset Последние добавления
+      .row.row--jc-center
+        .col-xs-12.col-sm-8.col-md-7.col-lg-6
+          .section__sub-title
+            span.h5 Новые аудиозаписи
+      .items.swiper.swiper--audios(data-swiper="6")
+        .swiper-wrapper
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 3:40
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart-solid')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              .item__head
+                a.item__thumb.item__thumb--audio(href="audio.html" title="А что ж ты что-то там где-то")
+                  img.item__img(src="img/audio.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="182" height="202")
+                .item__content
+                  .item__date 31.12.1970
+                  a.item__title.item__title--audio(href="audio.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+                  .item__info
+                    span Песня
+                    span Номер записи: 12345678
+                  .item__author
+                    span
+                      ="Ансамбль: "
+                      b “Братчина”
+                    span
+                      ="Автор: "
+                      b Купников В. Г.
+              .item__player
+                .audio-player
+                  audio.audio-player__audio(controls)
+                    source(src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3")
+                  .audio-player__play-pause
+                    button.audio-player__play(type="button" aria-label="Плей/пауза")
+                      +icon('play')
+                  .audio-player__progress
+                    span.audio-player__progress-line
+                  .audio-player__time
+                    span.audio-player__time-current 0:00
+                    =" / "
+                    span.audio-player__time-all 1:44
+              .item__heart.item__heart--audio
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+        .swiper-navigation.swiper-navigation--bottom
+          button.swiper-button-prev(type="button" aria-label="Предыдущие")
+            +icon('arrow-left')
+          a.button.button--large.button--green-clear(href="audios.html" title="Все аудиозаписи") Все аудиозаписи
+          button.swiper-button-next(type="button" aria-label="Следующие")
+            +icon('arrow-right')
+
+  .section.section--pt
+    .container
+      .row.row--jc-center
+        .col-xs-12.col-sm-8.col-md-7.col-lg-6
+          .section__sub-title
+            span.h5 Новые видео
+      .items.swiper.swiper--videos(data-swiper="6")
+        .swiper-wrapper
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+          .swiper-slide
+            .item
+              a.item__thumb.item__thumb--video.glightbox(href="https://www.youtube.com/watch?v=PlD84j7DcJU" title="А что ж ты что-то там где-то")
+                img.item__img(src="img/video.jpg" alt="А что ж ты что-то там где-то" loading="lazy" width="546" height="311")
+                span.item__play-icon
+                  +icon('play')
+              .item__date 31.12.1970
+              a.item__title.item__title--video(href="video.html" title="А что ж ты что-то там где-то") А что ж ты что-то там где-то ж ты что-то там где-то
+              .item__info
+                span Песня
+                span Номер записи: 12345678
+              .item__author
+                span
+                  ="Ансамбль: "
+                  b “Братчина”
+                span
+                  ="Автор: "
+                  b Купников В. Г.
+              .item__heart.item__heart--video
+                button.button.button--square-small.js-add-to-favorite(data-id="1" aria-label="Добавить в избранное" type="button")
+                  +icon('heart')
+        .swiper-navigation.swiper-navigation--bottom
+          button.swiper-button-prev(type="button" aria-label="Предыдущие")
+            +icon('arrow-left')
+          a.button.button--large.button--green-clear(href="videos.html" title="Все видеозаписи") Все видеозаписи
+          button.swiper-button-next(type="button" aria-label="Следующие")
+            +icon('arrow-right')
+  .section.section--py
+    .container
+      .section__title
+        h2.h1.reset Новости
+      .news
+        .row.news--row
+          .col-xs-9.col-sm-6
+            .news__item.news__item--large
+              a.news__thumb.news__thumb--large(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+              .news__date
+                +icon('calendar')
+                | 22.01.2022
+              .news__title.news__title--large
+                a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+              .news__short.news__short--large Повседневная практика показывает, что синтетическое тестирование выявляет срочную потребность экономической целесообразности.
+          .col-xs-12.col-sm-6
+            .row.news--row
+              .col-xs-9.col-sm-12
+                .news__item.news__item--small
+                  a.news__thumb.news__thumb--small(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                    img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+                  .news__content
+                    .news__date
+                      +icon('calendar')
+                      | 22.01.2022
+                    .news__title.news__title--small
+                      a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+                    .news__short.news__short--small Существующая теория, в своём классическом представлении, допускает внедрение приоритизации...
+              .col-xs-9.col-sm-12
+                .news__item.news__item--small
+                  a.news__thumb.news__thumb--small(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                    img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+                  .news__content
+                    .news__date
+                      +icon('calendar')
+                      | 22.01.2022
+                    .news__title.news__title--small
+                      a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+                    .news__short.news__short--small Существующая теория, в своём классическом представлении, допускает внедрение приоритизации...
+              .col-xs-9.col-sm-12
+                .news__item.news__item--small
+                  a.news__thumb.news__thumb--small(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                    img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+                  .news__content
+                    .news__date
+                      +icon('calendar')
+                      | 22.01.2022
+                    .news__title.news__title--small
+                      a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+                    .news__short.news__short--small Существующая теория, в своём классическом представлении, допускает внедрение приоритизации...
+      .more-button
+        a.button.button--large.button--green-clear(href="news.html" title="Все новости") Все новости
+
+  .pattern
+  .section.section--py.section--milk
+    .container
+      .section__title
+        h2.h1.reset Участники
+      .partners
+        .swiper(data-swiper="partners")
+          .swiper-wrapper
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-1.png" alt="" loading="lazy" width="164" height="67")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-2.jpg" alt="" loading="lazy" width="131" height="90")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-3.png" alt="" loading="lazy" width="208" height="39")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-4.png" alt="" loading="lazy" width="181" height="63")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-1.png" alt="" loading="lazy" width="164" height="67")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-2.jpg" alt="" loading="lazy" width="131" height="90")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-3.png" alt="" loading="lazy" width="208" height="39")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-4.png" alt="" loading="lazy" width="181" height="63")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-1.png" alt="" loading="lazy" width="164" height="67")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-2.jpg" alt="" loading="lazy" width="131" height="90")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-3.png" alt="" loading="lazy" width="208" height="39")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-4.png" alt="" loading="lazy" width="181" height="63")
+          .swiper-navigation.swiper-navigation--center
+            button.swiper-button-prev(type="button" aria-label="Предыдущие")
+              +icon('arrow-left')
+            button.swiper-button-next(type="button" aria-label="Следующие")
+              +icon('arrow-right')
+          .swiper-pagination
+
+block footer
+  include ../components/footer/footer

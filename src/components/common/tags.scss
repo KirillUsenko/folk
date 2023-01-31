@@ -1,0 +1,32 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 14px;
+  margin: 0 8px 8px 0;
+  font-size: 14px;
+  color: $grey;
+  font-weight: 600;
+  border: 1px solid $light-grey;
+  border-radius: 100px;
+
+  &:hover {
+    color: $dark-green;
+    border-color: $yellow-green;
+  }
+
+  &.current {
+    color: #ffffff;
+    background-color: $y-g-2;
+    border-color: transparent;
+
+    span {
+      color: inherit;
+    }
+  }
+
+  &__count {
+    margin: 0 0 0 0.4em;
+    color: $blue-grey;
+  }
+}

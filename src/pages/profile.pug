@@ -1,0 +1,114 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Правила сайта'
+  - var title = 'Мир фолка'
+
+block header
+  include ../components/header/header
+
+block content
+  .page
+    .container
+      .page__breadcrumbs
+        ol.breadcrumbs(itemscope="" itemtype="https://schema.org/BreadcrumbList")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="index.html" title="Главная")
+              span(itemprop="name") Главная
+              meta(itemprop="position" content="0")
+          li.breadcrumbs__item
+            span Личный кабинет
+      .page__title
+        h1.reset Личный кабинет
+    .lk-nav__wrap
+      .container
+        nav.lk-nav
+          ul.lk-nav__list
+            li.lk-nav__item
+              a.lk-nav__link(href="materials.html" title="Мои материалы")
+                +icon('materials', 'lk-nav__icon lk-nav__icon--materials')
+                span.lk-nav__text Мои материалы
+            li.lk-nav__item.current
+              a.lk-nav__link(href="profile.html" title="Личные данные")
+                +icon('lk-user', 'lk-nav__icon lk-nav__icon--user')
+                span.lk-nav__text Личные данные
+            li.lk-nav__item
+              a.lk-nav__link(href="add-material.html" title="Добавить материал")
+                +icon('add-material', 'lk-nav__icon lk-nav__icon--add-material')
+                span.lk-nav__text Добавить материал
+            li.lk-nav__item
+              a.lk-nav__link(href="favorites.html" title="Избранное")
+                +icon('favorites', 'lk-nav__icon lk-nav__icon--favorites')
+                span.lk-nav__text Избранное
+            li.lk-nav__item
+              a.lk-nav__link(href="download.html" title="Скачивание")
+                +icon('card', 'lk-nav__icon lk-nav__icon--download')
+                span.lk-nav__text Скачивание
+    .page__content.section--pt-medium
+      .profile.content.container
+        form.form(action="#" method="post")
+          .row
+            .col-xs-12.col-sm-4
+              .form__field
+                label.form__label.form__label--large(for="profile-name") Имя или организация
+                input#profile-name.form__input.form__input--large(type="text" name="name" value="Владислав" placeholder="Иван" required)
+            .col-xs-12.col-sm-4
+              .form__field
+                label.form__label.form__label--large(for="profile-email") Email
+                input#profile-email.form__input.form__input--large(type="email" name="email" value="mail@mail.ru" placeholder="example@mail.com" required)
+            .col-xs-12
+              .form__button
+                button.button.button--green.button--pre-large(type="submit") Сохранить изменения
+        hr
+        .profile__links
+          .profile__links-item
+            a.js-modal-open(href="#edit-password-form" title="Сменить пароль") Сменить пароль
+            #edit-password-form.modal.hidden
+              .modal__overlay.js-modal-close
+              .modal__inner.modal__inner--small
+                button.modal__close.js-modal-close(type="button" aria-label="Закрыть модальное окно")
+                .modal__head Смена пароля
+                .modal__body
+                  form.form(action="/register" method="post")
+                    .form__field
+                      label.form__label(for="edit-password") Текущий пароль
+                      .form__field-wrap
+                        input#edit-password.form__input(type="password" name="password" placeholder="●●●●●●●●" required)
+                        button.form__eye-button(type="button")
+                          +icon('eye')
+                    .form__field
+                      label.form__label(for="edit-password-new") Новый пароль
+                      .form__field-wrap
+                        input#edit-password-new.form__input(type="password" name="password-new" placeholder="●●●●●●●●" required)
+                        button.form__eye-button(type="button")
+                          +icon('eye')
+                    .form__field
+                      label.form__label(for="edit-password-new-repeat") Подтверждение нового пароля
+                      .form__field-wrap
+                        input#edit-password-new-repeat.form__input(type="password" name="password-new-repeat" placeholder="●●●●●●●●" required)
+                        button.form__eye-button(type="button")
+                          +icon('eye')
+                    .form__button
+                      button.button.button--green-clear.button--medium.button--full(type="submit") Сохранить пароль
+                    br
+                    .text-center
+                      a.form__link.form__link--grey.js-modal-open(href="#recovery" title="Забыли пароль?") Забыли пароль?
+          .profile__links-item
+            a.js-modal-open(href="#remove-account" title="Удалит аккаунт") Удалит аккаунт
+            #remove-account.modal.hidden
+              .modal__overlay.js-modal-close
+              .modal__inner.modal__inner--small
+                button.modal__close.js-modal-close(type="button" aria-label="Закрыть модальное окно")
+                .modal__head Удаление аккаунта
+                .modal__body
+                  form.form(action="/register" method="post")
+                    .form__field
+                      label.form__checkbox.form__checkbox--large
+                        input.form__checkbox-input(type="checkbox" name="confirm")
+                        span.form__checkbox-icon
+                        span.form__checkbox-text Я уверен, что хочу удалить свой аккаунт.
+                    .form__button
+                      button.button.button--green-clear.button--medium.button--full(type="submit") Удалить аккаунт
+
+block footer
+  include ../components/footer/footer

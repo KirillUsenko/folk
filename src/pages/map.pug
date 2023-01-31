@@ -1,0 +1,132 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Коллекции на карте'
+  - var title = 'Мир фолка'
+
+block header
+  include ../components/header/header
+
+block content
+  .page
+    .container
+      .page__breadcrumbs
+        ol.breadcrumbs(itemscope="" itemtype="https://schema.org/BreadcrumbList")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="index.html" title="Главная")
+              span(itemprop="name") Главная
+              meta(itemprop="position" content="0")
+          li.breadcrumbs__item
+            span Коллекции
+      .page__title
+        h1.reset Коллекции
+      .page__content
+        .collections
+          .collections__content
+            .collections__toggle-types
+              .collections__toggle-type
+                a.button.button--default.button--green-clear-pc(href="collections.html" title="Показать списком")
+                  +icon('list', 'button__icon button__icon--medium button__icon--grey button__icon--left')
+                  | Показать списком
+              .collections__toggle-type.collections__toggle-type--sm
+                a.button.button--default.button--green-clear-pc.js-filter-toggle(href="#filter" title="Фильтры")
+                  +icon('filter', 'button__icon button__icon--grey button__icon--medium button__icon--left')
+                  | Фильтры
+            #map-wrap.collections__map-wrap
+              #map.collections__map
+              .collections__map-buttons
+                a.button.button--white-grey.button--medium-square.button--shadow.js-map-full-screen(href="#" title="На весь экран")
+                  +icon('full-screen', 'button__icon button__icon--grey button__icon--large')
+          .collections__sidebar
+            .collections__filter.collections__filter--map
+              include ../components/filter/filter
+
+block footer
+  include ../components/footer/footer
+block script
+  script(src="https://api-maps.yandex.ru/2.1/?apikey=3144a72a-cb78-46fe-a0e6-5de0ad67a115&lang=ru-RU&onload=mapInit" async)
+  script.
+      let map, objectManager, data;
+
+      data = {
+          "type": "FeatureCollection",
+          "features": [
+              {
+                  "type": "Feature",
+                  "id": 0,
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [55.73939098, 37.72186256]
+                  },
+                  "properties": {
+                      "balloonContentBody": "<div class='map-item'>" +
+                            "<a class='map-item__thumb map-item__thumb--video' onclick='mapVideoOpen(this, event)' href='https://www.youtube.com/watch?v=PlD84j7DcJU' title='А что ж ты что-то там где-то'>" +
+                              "<img class='map-item__img' src='img/video.jpg' alt='А что ж ты что-то там где-то' loading='lazy' width='546' height='311'>" +
+                              "<span class='map-item__play-icon'>" +
+                                "<svg role='img'>" +
+                                  "<use xlink:href='img/icons/icons.svg?v=#play'></use>" +
+                                "</svg>" +
+                              "</span>" +
+                            "</a>" +
+                            "<div class='map-item__content'>" +
+                              "<div class='map-item__year'>1970 год</div>" +
+                              "<div class='map-item__type'>Песня</div>" +
+                              "<a class='map-item__title' href='audio.html' title='А что ж ты что-то там где-то'>А что ж ты что-то там где-то</a>" +
+                              "<div class='map-item__author'>Ансамбль “Калина красная”</div>" +
+                            "</div>" +
+                          "</div>",
+                      "clusterCaption": "А что ж ты что-то там где-то",
+                      "hintContent": "А что ж ты что-то там где-то"
+                  }
+              },
+              {
+                  "type": "Feature",
+                  "id": 0,
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [55.73939098, 37.72186256]
+                  },
+                  "properties": {
+                      "balloonContentBody": "<div class='map-item'>" +
+                            "<a class='map-item__thumb map-item__thumb--video' onclick='mapVideoOpen(this, event)' href='https://www.youtube.com/watch?v=PlD84j7DcJU' title='А что ж ты что-то там где-то'>" +
+                              "<img class='map-item__img' src='img/video.jpg' alt='А что ж ты что-то там где-то' loading='lazy' width='546' height='311'>" +
+                              "<span class='map-item__play-icon'>" +
+                                "<svg role='img'>" +
+                                  "<use xlink:href='img/icons/icons.svg?v=#play'></use>" +
+                                "</svg>" +
+                              "</span>" +
+                            "</a>" +
+                            "<div class='map-item__content'>" +
+                              "<div class='map-item__year'>1970 год</div>" +
+                              "<div class='map-item__type'>Песня</div>" +
+                              "<a class='map-item__title' href='audio.html' title='А что ж ты что-то там где-то'>А что ж ты что-то там где-то</a>" +
+                              "<div class='map-item__author'>Ансамбль “Калина красная”</div>" +
+                            "</div>" +
+                          "</div>",
+                      "clusterCaption": "А что ж ты что-то там где-то",
+                      "hintContent": "А что ж ты что-то там где-то"
+                  }
+              },
+          ]
+      };
+
+      function mapInit() {
+          map = new ymaps.Map("map", {
+              center: [55.75630634264169, 37.61852241107421],
+              zoom: 5
+          }, {
+              searchControlProvider: 'yandex#search'
+          });
+
+          objectManager = new ymaps.ObjectManager({
+              clusterize: true,
+              gridSize: 32,
+              clusterDisableClickZoom: true
+          });
+
+          objectManager.objects.options.set('preset', 'islands#greenDotIcon');
+          objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
+          map.geoObjects.add(objectManager);
+
+          objectManager.add(data);
+      }

@@ -1,0 +1,148 @@
+.collection {
+  display: flex;
+  align-items: center;
+  color: $dark-grey;
+
+  &:hover {
+    color: $dark-green;
+
+    .collection__icon {
+      box-shadow: 0 25px 30px rgba(174, 229, 3, 0.3);
+    }
+  }
+
+  &--list {
+    margin: 28px 0 0;
+    flex-direction: row-reverse;
+  }
+
+  &__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-image: $green-linear;
+    transition: all $transition-time;
+  }
+
+  &__svg {
+    width: 58%;
+    height: 58%;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    height: 100px;
+    background-color: #fff;
+    box-shadow: $shadow;
+
+    &--map {
+      margin: 0 0 0 -30px;
+      padding: 0 20px 0 50px;
+      border-radius: 0 15px 15px 0;
+    }
+
+    &--list {
+      margin: 0 -30px 0 0;
+      padding: 0 50px 0 20px;
+      border-radius: 15px 0 0 15px;
+    }
+  }
+}
+
+@media all and (min-width: $screen-sm) {
+  .collection {
+
+    &--list {
+      margin: 0 0 0 10px;
+      flex-direction: row;
+    }
+
+    &--map {
+      margin: 0 10px 0 0;
+    }
+
+    &__text {
+
+      &--map,
+      &--list {
+        margin: 0 0 0 -30px;
+        padding: 0 24px 0 54px;
+        border-radius: 0 15px 15px 0;
+      }
+    }
+  }
+}
+
+@media all and (min-width: $screen-md) {
+  .collection {
+
+    &--list {
+      margin: 0 0 0 30px;
+    }
+
+    &--map {
+      margin: 0 30px 0 0;
+    }
+
+    &__text {
+      height: 130px;
+
+      &--map,
+      &--list {
+        padding: 0 28px 0 58px;
+      }
+    }
+
+    &__icon {
+      width: 180px;
+      height: 180px;
+    }
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .collection {
+
+    &--list {
+      margin: 0 0 0 45px;
+    }
+
+    &--map {
+      margin: 0 45px 0 0;
+    }
+  }
+}
+
+@media all and (min-width: $screen-lg) {
+  .collection {
+
+    &--list {
+      margin: 0 0 0 60px;
+    }
+
+    &--map {
+      margin: 0 60px 0 0;
+    }
+
+    &__text {
+      height: 180px;
+
+      &--map,
+      &--list {
+        padding: 0 32px 0 62px;
+      }
+    }
+
+    &__icon {
+      width: 240px;
+      height: 240px;
+    }
+  }
+}

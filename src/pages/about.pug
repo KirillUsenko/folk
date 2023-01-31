@@ -1,0 +1,99 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Правила сайта'
+  - var title = 'О проекте'
+
+block header
+  include ../components/header/header
+
+block content
+  .page
+    .container
+      .page__breadcrumbs
+        ol.breadcrumbs(itemscope="" itemtype="https://schema.org/BreadcrumbList")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="index.html" title="Главная")
+              span(itemprop="name") Главная
+              meta(itemprop="position" content="0")
+          li.breadcrumbs__item
+            span О проекте
+      .page__title
+        h1.reset О проекте
+      .page__content.content
+        blockquote
+          p Народная песня точилась не час, не день и не месяц, а век, два, три – сколько угодно. Вся шелуха ушла. Там не осталось ничего, что было бы посторонним. Там не осталось ничего, что было бы от автора. Нет больше автора никакого. И поэтому, эта песня действует на всех, при всех обстоятельствах, для всех. Потому что из нее все неестественное, личностное ушло. Осталось только общее. Это и есть народная музыка.
+          footer Борис Гребенщиков
+        p Открытая база фольклора и этнографии «Мир Фолка» создана для сохранения и изучения аутентичных материалов по народной традиции для самого широкого круга лиц.
+        p Уникальность проекта заключается в бесплатном и легком доступе к настоящим аутентичным материалам по народной традиции для любого пользователя сайта. Для простоты поиска материалов по сайту, реализовано размещение всех объектов на карте, а также применение фильтрации объектов хранения по специально разработанным фильтрам.
+        p Также уникальность проекта заключается в возможности каждого пользователя добавить на сайт свои материалы. Материалы будут размещены на сайте только после проверки профессиональными модераторами на подлинность.
+        p Проект не коммерческий, и создан на частные пожертвования множеством профессионалов и любителей народной традиции на базе возможностей команды «Мир Гуслей».
+        p Сохраним традицию для наших детей!
+        .row.row--jc-center
+          .col-xs-12.col-sm-8.col-md-7.col-lg-6
+            h3.text-center.large-mb Пожертвования проекту
+            form.form.form--donations(action="#" method="post")
+              .row.row--jc-center
+                .col-xs-4
+                  label.radio-button
+                    input.radio-button__input(type="radio" name="sum" value="200")
+                    span.radio-button__label.radio-button__label--full 200 ₽
+                .col-xs-4
+                  label.radio-button
+                    input.radio-button__input(type="radio" name="sum" value="500")
+                    span.radio-button__label.radio-button__label--full 500 ₽
+                .col-xs-4
+                  label.radio-button
+                    input.radio-button__input(type="radio" name="sum" value="1000")
+                    span.radio-button__label.radio-button__label--full 1000 ₽
+              .form__field
+                label.form__label(for="sum") Другая сумма
+                input#sum.form__input(type="number" name="other-sum" placeholder="Введите желаемую сумму пожертвования")
+              .row.row--jc-center
+                .col-xs-12.col-sm-8
+                  .form__button
+                    button.button.button--green.button--medium.button--full(type="submit" value="subscribe") Помогать ежемесячно
+                  .form__field
+                    button.button.button--green-clear.button--medium.button--full(type="submit" value="1") Разовое пожертвование
+
+  .pattern
+  .section.section--py.section--milk
+    .container
+      .section__title
+        h2.h1.reset Участники
+      .partners
+        .swiper(data-swiper="partners")
+          .swiper-wrapper
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-1.png" alt="" loading="lazy" width="164" height="67")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-2.jpg" alt="" loading="lazy" width="131" height="90")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-3.png" alt="" loading="lazy" width="208" height="39")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-4.png" alt="" loading="lazy" width="181" height="63")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-1.png" alt="" loading="lazy" width="164" height="67")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-2.jpg" alt="" loading="lazy" width="131" height="90")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-3.png" alt="" loading="lazy" width="208" height="39")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-4.png" alt="" loading="lazy" width="181" height="63")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-1.png" alt="" loading="lazy" width="164" height="67")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-2.jpg" alt="" loading="lazy" width="131" height="90")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-3.png" alt="" loading="lazy" width="208" height="39")
+            .partners__item.swiper-slide
+              img.partners__logo(src="img/partner-4.png" alt="" loading="lazy" width="181" height="63")
+          .swiper-navigation.swiper-navigation--center
+            button.swiper-button-prev(type="button" aria-label="Предыдущие")
+              +icon('arrow-left')
+            button.swiper-button-next(type="button" aria-label="Следующие")
+              +icon('arrow-right')
+          .swiper-pagination
+
+block footer
+  include ../components/footer/footer

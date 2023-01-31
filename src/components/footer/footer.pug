@@ -1,0 +1,37 @@
+.subscribe
+  .container
+    .row.row--jc-center
+      .col-xs-12.col-md-10
+        .row.row--ai-center
+          .col-xs-12.col-sm-7 Подпишитесь на нашу рассылку и получайте интересные статьи и новости первыми
+          .col-xs-12.col-sm-5
+            form.subscribe__form(action="/ajax/subscribe" method="post")
+              input.subscribe__field(type="email" name="email" aria-label="введите ваш email" placeholder="Введите ваш email")
+              button.subscribe__button(type="submit" aria-label="Подписаться")
+                +icon('arrow-right', 'subscribe__button-icon')
+
+footer.footer
+  .container
+    .footer__main
+      a.footer__logo(href="index.html" title="Мир фолка")
+        img.footer__logo-img(src="img/svg/logo-white.svg" alt="Мир фолка" width="185" height="112")
+      ul.footer__menu
+        each link, title in data.nav
+          li.footer__menu-item(class=title === active ? 'current' : '')
+            a.footer__menu-link(href=link title=title)=title
+      a.footer__callback.js-modal-open(href="#callback" title="Связаться с нами")
+        span.footer__callback-icon
+          +icon('envelope', 'footer__callback-svg')
+        | Связаться с нами
+    .footer__bottom
+      .footer__copyright © 2022 Мир фольклора. Все права защищены.
+      ul.footer__social
+        li.footer__social-item
+          a.footer__social-link(href="#" title="Мы в Youtube")
+            +icon('youtube-circle', 'footer__social-icon')
+        li.footer__social-item
+          a.footer__social-link(href="#" title="Мы в Одноклассниках")
+            +icon('ok-circle', 'footer__social-icon')
+        li.footer__social-item
+          a.footer__social-link(href="#" title="Мы в Vkontakte")
+            +icon('vkontakte-circle', 'footer__social-icon')

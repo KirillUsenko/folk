@@ -1,0 +1,36 @@
+.profile {
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 14px;
+    line-height: 1;
+
+    &-item {
+      margin: 0 0 12px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media all and (min-width: $screen-md) {
+  .profile {
+
+    &__links {
+      font-size: 16px;
+    }
+  }
+}
+
+@media all and (min-width: $screen-lg) {
+  .profile {
+
+    &__links {
+      font-size: 18px;
+    }
+  }
+}

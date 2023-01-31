@@ -1,0 +1,78 @@
+.page {
+  padding: 0 0 70px;
+
+  &__breadcrumbs {
+    margin: 0 0 20px;
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    margin: 8px 0 0;
+    font-family: $montserrat;
+  }
+
+  &__back {
+    margin: 1em 0 0;
+    text-align: left;
+
+    .button {
+      padding: 0;
+    }
+  }
+}
+
+@media all and (min-width: $screen-sm) {
+  .page {
+
+    &__breadcrumbs {
+      margin: 0 0 32px;
+    }
+
+    &__title {
+      margin: 0 0 32px;
+    }
+  }
+}
+
+@media all and (min-width: $screen-md) {
+  .page {
+    padding: 0 0 90px;
+
+    &__breadcrumbs {
+      margin: 0 0 40px;
+    }
+
+    &__title {
+      margin: 0 0 40px;
+    }
+
+    &__subtitle {
+      font-size: 20px;
+      margin: 12px 0 0;
+    }
+  }
+}
+
+@media all and (min-width: $screen-lg) {
+  .page {
+    padding: 0 0 110px;
+
+    &__breadcrumbs {
+      margin: 0 0 48px;
+    }
+
+    &__title {
+      margin: 0 0 48px;
+    }
+
+    &__subtitle {
+      font-size: 24px;
+      margin: 16px 0 0;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Новости'
+  - var title = 'Мир фолка'
+
+block header
+  include ../components/header/header
+
+block content
+  .page
+    .container
+      .page__breadcrumbs
+        ol.breadcrumbs(itemscope="" itemtype="https://schema.org/BreadcrumbList")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="index.html" title="Главная")
+              span(itemprop="name") Главная
+              meta(itemprop="position" content="0")
+          li.breadcrumbs__item
+            span Новости
+      .page__title
+        h1.reset Новости
+      .page__content
+        .news__item.news__item--large
+          .row.row--ai-center
+            .col-xs-12.col-sm-6
+              a.news__thumb.news__thumb--large(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+            .col-xs-12.col-sm-6
+              .news__right
+                .news__date
+                  +icon('calendar')
+                  | 22.01.2022
+                .news__title.news__title--x-large
+                  a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+                .news__short.news__short--large Повседневная практика показывает, что синтетическое тестирование выявляет срочную потребность экономической целесообразности.
+                .news__button
+                  a.button.button--green-clear.button--medium(href="news-item.html" title="Подробнее") Подробнее
+        .row
+          .col-xs-12.col-sm-6.col-md-4
+            .news__item.news__item--large
+              a.news__thumb.news__thumb--large(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+              .news__date
+                +icon('calendar')
+                | 22.01.2022
+              .news__title.news__title--large
+                a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+              .news__short.news__short--large Повседневная практика показывает, что синтетическое тестирование выявляет срочную потребность экономической целесообразности.
+              .news__button
+                a.button.button--green-clear.button--medium(href="news-item.html" title="Подробнее") Подробнее
+          .col-xs-12.col-sm-6.col-md-4
+            .news__item.news__item--large
+              a.news__thumb.news__thumb--large(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+              .news__date
+                +icon('calendar')
+                | 22.01.2022
+              .news__title.news__title--large
+                a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+              .news__short.news__short--large Повседневная практика показывает, что синтетическое тестирование выявляет срочную потребность экономической целесообразности.
+              .news__button
+                a.button.button--green-clear.button--medium(href="news-item.html" title="Подробнее") Подробнее
+          .col-xs-12.col-sm-6.col-md-4
+            .news__item.news__item--large
+              a.news__thumb.news__thumb--large(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+              .news__date
+                +icon('calendar')
+                | 22.01.2022
+              .news__title.news__title--large
+                a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+              .news__short.news__short--large Повседневная практика показывает, что синтетическое тестирование выявляет срочную потребность экономической целесообразности.
+              .news__button
+                a.button.button--green-clear.button--medium(href="news-item.html" title="Подробнее") Подробнее
+          .col-xs-12.col-sm-6.col-md-4
+            .news__item.news__item--large
+              a.news__thumb.news__thumb--large(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+              .news__date
+                +icon('calendar')
+                | 22.01.2022
+              .news__title.news__title--large
+                a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+              .news__short.news__short--large Повседневная практика показывает, что синтетическое тестирование выявляет срочную потребность экономической целесообразности.
+              .news__button
+                a.button.button--green-clear.button--medium(href="news-item.html" title="Подробнее") Подробнее
+          .col-xs-12.col-sm-6.col-md-4
+            .news__item.news__item--large
+              a.news__thumb.news__thumb--large(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+              .news__date
+                +icon('calendar')
+                | 22.01.2022
+              .news__title.news__title--large
+                a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+              .news__short.news__short--large Повседневная практика показывает, что синтетическое тестирование выявляет срочную потребность экономической целесообразности.
+              .news__button
+                a.button.button--green-clear.button--medium(href="news-item.html" title="Подробнее") Подробнее
+          .col-xs-12.col-sm-6.col-md-4
+            .news__item.news__item--large
+              a.news__thumb.news__thumb--large(href="news-item.html" title="Выставка “Этнография Кологриева”")
+                img.news__img(src="img/news.jpg" alt="Выставка “Этнография Кологриева”" width="624" height="404" loading="lazy")
+              .news__date
+                +icon('calendar')
+                | 22.01.2022
+              .news__title.news__title--large
+                a.news__link(href="news-item.html" title="Выставка “Этнография Кологриева”") Выставка “Этнография Кологриева”
+              .news__short.news__short--large Повседневная практика показывает, что синтетическое тестирование выявляет срочную потребность экономической целесообразности.
+              .news__button
+                a.button.button--green-clear.button--medium(href="news-item.html" title="Подробнее") Подробнее
+        ul.pagination
+          li.pagination__item.pagination__item--prev
+            a.pagination__link(href="#" title="Предыдущая страница")
+              +icon('arrow-left', 'pagination__arrow')
+          li.pagination__item.current
+            a.pagination__link(href="#" title="Страница 1") 1
+          li.pagination__item
+            a.pagination__link(href="#" title="Страница 2") 2
+          li.pagination__item
+            a.pagination__link(href="#" title="Страница 3") 3
+          li.pagination__item
+            a.pagination__link(href="#" title="Страница 4") 4
+          li.pagination__item
+            a.pagination__link(href="#" title="Страница 5") 5
+          li.pagination__item
+            a.pagination__link(href="#" title="Страница 6") ...
+          li.pagination__item
+            a.pagination__link(href="#" title="Страница 10") 10
+          li.pagination__item.pagination__item--next
+            a.pagination__link(href="#" title="Следующая страница")
+              +icon('arrow-right', 'pagination__arrow')
+
+block footer
+  include ../components/footer/footer

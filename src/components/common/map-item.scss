@@ -1,0 +1,102 @@
+.map-item {
+  padding: 0 5px 10px;
+  font-size: 12px;
+  line-height: 1.2;
+  font-family: 'Segoe UI', sans-serif;
+
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    margin: 0 0 5px;
+  }
+
+  &__thumb {
+    position: relative;
+    margin: 0 10px 0 0;
+    overflow: hidden;
+    flex: 0 0 auto;
+    cursor: pointer;
+    background: none;
+    border: 0;
+
+    &--video {
+      width: 120px;
+      border-radius: 10px;
+    }
+
+    &--audio {
+      width: 84px;
+      border-radius: 100px 100px 20px 20px;
+    }
+  }
+
+  &__img {
+    display: block;
+  }
+
+  &__play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    color: #ffffff;
+    transform: translate(-50%, -50%);
+    background: rgba($black, 0.5);
+    border-radius: 50%;
+
+    svg {
+      width: 90%;
+      height: 90%;
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__year {
+    color: $light-grey;
+  }
+
+  &__type {
+    margin: 0.2em 0 0;
+    color: $dark-grey;
+  }
+
+  &__title {
+    display: block;
+    margin: 0.3em 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: $very-dark-grey;
+    text-decoration: underline;
+
+    &:hover {
+      color: $dark-green;
+    }
+  }
+
+  &__author {
+    color: $blue-grey;
+  }
+
+  &__favorite {
+    position: absolute;
+    right: 0;
+    top: -2px;
+  }
+}
+
+@media all and (min-width: $screen-sm) {
+  .map-item {
+
+    &__title {
+      font-size: 16px;
+    }
+  }
+}

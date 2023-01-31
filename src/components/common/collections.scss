@@ -1,0 +1,178 @@
+.collections {
+
+  &__toggle-types {
+    display: flex;
+    justify-content: space-between;
+
+    &--list {
+      position: sticky;
+      top: 60px;
+      left: 0;
+      z-index: 5;
+      margin: 0 -20px 20px;
+      padding: 5px 20px 0;
+      background-color: #fff;
+    }
+  }
+
+  &__toggle-type {
+    margin: 0 0 10px;
+  }
+
+  &__map {
+    height: 100%;
+    width: 100%;
+
+    &-wrap {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+      border-radius: 15px;
+
+      &.show {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 250;
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+
+        .collections__map-buttons {
+          padding: 0 20px 20px;
+        }
+      }
+    }
+
+    &-buttons {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 12px 12px;
+    }
+  }
+
+  &__list {
+    margin: 0 0 36px;
+  }
+
+  &__filter {
+    position: relative;
+  }
+}
+
+@media all and (min-width: $screen-sm) {
+  .collections {
+
+    &__toggle-types {
+
+      &--list {
+        top: 64px;
+        margin: 0 -32px 20px;
+        padding: 5px 32px 0;
+      }
+    }
+  }
+}
+
+@media all and (min-width: $screen-md) {
+  .collections {
+    display: flex;
+
+    &__toggle-types {
+
+      &--list {
+        position: static;
+        margin: 0 0 28px;
+        padding: 0;
+      }
+    }
+
+    &__toggle-type {
+
+      &--sm {
+        display: none;
+      }
+    }
+
+    &__sidebar {
+      flex: 0 0 auto;
+      width: 290px;
+    }
+
+    &__content {
+      flex: 1 1 auto;
+      width: calc(100% - 290px);
+      padding: 0 30px 0 0;
+    }
+
+    &__map {
+
+      &-wrap {
+        height: 60vh;
+      }
+    }
+
+    &__list {
+      margin: 0 0 44px;
+    }
+
+    &__filter {
+
+      &--list {
+        height: 65vh;
+      }
+
+      &--map {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .collections {
+
+    &__toggle-types {
+
+      &--list {
+        margin: 0 0 16px;
+      }
+    }
+
+    &__toggle-type {
+
+      &--md {
+        display: none;
+      }
+    }
+  }
+}
+
+@media all and (min-width: $screen-lg) {
+  .collections {
+
+    &__sidebar {
+      width: 300px;
+    }
+
+    &__content {
+      padding: 0 36px 0 0;
+    }
+
+    &__toggle-type {
+      margin: 0 0 15px;
+    }
+
+    &__map {
+      border-radius: 20px;
+    }
+
+    &__list {
+      margin: 0 0 52px;
+    }
+  }
+}

@@ -1,0 +1,467 @@
+#filter.filter
+  .filter__head Фильтры
+    button.filter__close.js-filter-toggle(type="button" data-href="#filter" aria-label="Закрыть фильтры")
+  .filter__body
+    .filter__group
+      .filter__checkbox
+        label.form__checkbox.form__checkbox--grey
+          input.form__checkbox-input(type="checkbox" name="location")
+          span.form__checkbox-icon
+          span.form__checkbox-text
+            ="С точным местоположением"
+            span.question.question--default(data-tippy)
+              +icon('question')
+            span.visually-hidden Если ваше сообщение касается конкретной записи
+      .filter__checkbox
+        label.form__checkbox.form__checkbox--grey
+          input.form__checkbox-input(type="checkbox" name="location")
+          span.form__checkbox-icon
+          span.form__checkbox-text
+            ="Подтвержденные специалистом"
+            span.question.question--default(data-tippy)
+              +icon('question')
+            span.visually-hidden Если ваше сообщение касается конкретной записи
+    .filter__group
+      .filter__group-title
+        span Год записи
+      .filter__slider-wrap
+        #years_slider.filter__slider(data-min="988" data-max="2022" data-step="1")
+      .filter__years
+        .filter__years-item
+          | с
+          input#years_from.filter__years-input(type="number" name="year-from" value="988")
+        .filter__years-item
+          | по
+          input#years_to.filter__years-input(type="number" name="year-to" value="2022")
+    .filter__group
+      .filter__group-title.filter__group-title--trigger(data-accordion-trigger)
+        span Содержание записи
+          span.question.question--default(data-tippy)
+            +icon('question')
+          span.visually-hidden Если ваше сообщение касается конкретной записи
+      .filter__group-content
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+            span.form__checkbox-icon
+            span.form__checkbox-text Песня
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+            span.form__checkbox-icon
+            span.form__checkbox-text Танец
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+            span.form__checkbox-icon
+            span.form__checkbox-text Хоровод
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+            span.form__checkbox-icon
+            span.form__checkbox-text Пляска
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="5")
+            span.form__checkbox-icon
+            span.form__checkbox-text Игра
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="6")
+            span.form__checkbox-icon
+            span.form__checkbox-text Плач, Причетание
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="7")
+            span.form__checkbox-icon
+            span.form__checkbox-text Наигрыш на музыкальных инструментах
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="8")
+            span.form__checkbox-icon
+            span.form__checkbox-text Быль, Бывальщина, Быличка или Предание
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="9")
+            span.form__checkbox-icon
+            span.form__checkbox-text Мастерство изготовления или Умение
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="10")
+            span.form__checkbox-icon
+            span.form__checkbox-text Театр или представление, ряжение
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="11")
+            span.form__checkbox-icon
+            span.form__checkbox-text Обряд
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="12")
+            span.form__checkbox-icon
+            span.form__checkbox-text Заговор
+    .filter__group
+      .filter__group-title.filter__group-title--trigger(data-accordion-trigger)
+        span Род деятельности
+          span.question.question--default(data-tippy)
+            +icon('question')
+          span.visually-hidden Если ваше сообщение касается конкретной записи
+      .filter__group-content
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="1")
+            span.form__checkbox-icon
+            span.form__checkbox-text Песня
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="2")
+            span.form__checkbox-icon
+            span.form__checkbox-text Танец
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="3")
+            span.form__checkbox-icon
+            span.form__checkbox-text Хоровод
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="type[]" value="4")
+            span.form__checkbox-icon
+            span.form__checkbox-text Пляска
+    .filter__group
+      .filter__group-title.filter__group-title--trigger(data-accordion-trigger)
+        span Календарь
+          span.question.question--default(data-tippy)
+            +icon('question')
+          span.visually-hidden Если ваше сообщение касается конкретной записи
+      .filter__group-content
+        .filter__row
+          .filter__column
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="calendar[]" value="1")
+                span.form__checkbox-icon
+                span.form__checkbox-text Весна
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="calendar[]" value="2")
+                span.form__checkbox-icon
+                span.form__checkbox-text Лето
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="calendar[]" value="3")
+                span.form__checkbox-icon
+                span.form__checkbox-text Осень
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="calendar[]" value="4")
+                span.form__checkbox-icon
+                span.form__checkbox-text Зима
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="calendar[]" value="5")
+                span.form__checkbox-icon
+                span.form__checkbox-text Рождество
+          .filter__column
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="calendar[]" value="6")
+                span.form__checkbox-icon
+                span.form__checkbox-text Масленица
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="calendar[]" value="7")
+                span.form__checkbox-icon
+                span.form__checkbox-text Щедровки
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="calendar[]" value="8")
+                span.form__checkbox-icon
+                span.form__checkbox-text Святки
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="calendar[]" value="9")
+                span.form__checkbox-icon
+                span.form__checkbox-text Коляда
+            .filter__checkbox
+              label.form__checkbox.form__checkbox--grey
+                input.form__checkbox-input(type="checkbox" name="calendar[]" value="10")
+                span.form__checkbox-icon
+                span.form__checkbox-text Иван-Купала
+        .filter__months
+          .filter__months-item
+            .filter__months-title(data-accordion-trigger)
+              span.icon
+              span.text Январь
+            .filter__months-content
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="1")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 1.02
+                    =" Преподобного Макария Египетского"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="3")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 1.02
+                    =" Преподобного Макария Египетского"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+          .filter__months-item
+            .filter__months-title(data-accordion-trigger)
+              span.icon
+              span.text Февраль
+            .filter__months-content
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="1")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 1.02
+                    =" Преподобного Макария Египетского"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="3")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 1.02
+                    =" Преподобного Макария Египетского"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+          .filter__months-item
+            .filter__months-title(data-accordion-trigger)
+              span.icon
+              span.text Март
+            .filter__months-content
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="1")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 1.02
+                    =" Преподобного Макария Египетского"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="3")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 1.02
+                    =" Преподобного Макария Египетского"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+          .filter__months-item
+            .filter__months-title(data-accordion-trigger)
+              span.icon
+              span.text Апрель
+            .filter__months-content
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="1")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 1.02
+                    =" Преподобного Макария Египетского"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="3")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 1.02
+                    =" Преподобного Макария Египетского"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+              .filter__months-checkbox
+                label.form__checkbox.form__checkbox--grey
+                  input.form__checkbox-input(type="checkbox" name="months[1][]" value="2")
+                  span.form__checkbox-icon
+                  span.form__checkbox-text
+                    b 2.02
+                    =" Преподобного Евфимия Великого"
+    .filter__group
+      .filter__group-title.filter__group-title--trigger(data-accordion-trigger)
+        span Земледельческий цикл
+          span.question.question--default(data-tippy)
+            +icon('question')
+          span.visually-hidden Если ваше сообщение касается конкретной записи
+      .filter__group-content
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="each[]" value="1")
+            span.form__checkbox-icon
+            span.form__checkbox-text Пахота
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="each[]" value="2")
+            span.form__checkbox-icon
+            span.form__checkbox-text Сев
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="each[]" value="3")
+            span.form__checkbox-icon
+            span.form__checkbox-text Борьба с засухой / переувлажнением
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="each[]" value="4")
+            span.form__checkbox-icon
+            span.form__checkbox-text Покос
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="each[]" value="5")
+            span.form__checkbox-icon
+            span.form__checkbox-text Жатва или сбор
+        .filter__checkbox
+          label.form__checkbox.form__checkbox--grey
+            input.form__checkbox-input(type="checkbox" name="each[]" value="6")
+            span.form__checkbox-icon
+            span.form__checkbox-text Хранение урожая
+    .filter__group
+      .filter__group-title.filter__group-title--trigger(data-accordion-trigger)
+        span Музыкальный аккомпанемент
+          span.question.question--default(data-tippy)
+            +icon('question')
+          span.visually-hidden Если ваше сообщение касается конкретной записи
+      .filter__group-content
+    .filter__group
+      .filter__group-title.filter__group-title--trigger(data-accordion-trigger)
+        span Возраст учеников
+          span.question.question--default(data-tippy)
+            +icon('question')
+          span.visually-hidden Если ваше сообщение касается конкретной записи
+      .filter__group-content
+    .filter__group
+      .filter__group-title.filter__group-title--trigger(data-accordion-trigger)
+        span Пол участников
+          span.question.question--default(data-tippy)
+            +icon('question')
+          span.visually-hidden Если ваше сообщение касается конкретной записи f v v v f  vvv vv cc vvgv vb
+      .filter__group-content
+  .filter__buttons
+    button.button.button--default.button--white(type="reset") Сбросить
+    button.button.button--medium.button--green-clear(type="submit") Применить

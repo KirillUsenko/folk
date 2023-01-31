@@ -1,0 +1,119 @@
+extends ../layout/layout
+
+block variables
+  - var active = 'Правила сайта'
+  - var title = 'Мир фолка'
+
+block header
+  include ../components/header/header
+
+block content
+  .page
+    .container
+      .page__breadcrumbs
+        ol.breadcrumbs(itemscope="" itemtype="https://schema.org/BreadcrumbList")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem")
+            a.breadcrumbs__link(itemprop="item" href="index.html" title="Главная")
+              span(itemprop="name") Главная
+              meta(itemprop="position" content="0")
+          li.breadcrumbs__item
+            span Личный кабинет
+      .page__title
+        h1.reset Личный кабинет
+    .lk-nav__wrap
+      .container
+        nav.lk-nav
+          ul.lk-nav__list
+            li.lk-nav__item
+              a.lk-nav__link(href="materials.html" title="Мои материалы")
+                +icon('materials', 'lk-nav__icon lk-nav__icon--materials')
+                span.lk-nav__text Мои материалы
+            li.lk-nav__item
+              a.lk-nav__link(href="profile.html" title="Личные данные")
+                +icon('lk-user', 'lk-nav__icon lk-nav__icon--user')
+                span.lk-nav__text Личные данные
+            li.lk-nav__item
+              a.lk-nav__link(href="add-material.html" title="Добавить материал")
+                +icon('add-material', 'lk-nav__icon lk-nav__icon--add-material')
+                span.lk-nav__text Добавить материал
+            li.lk-nav__item
+              a.lk-nav__link(href="favorites.html" title="Избранное")
+                +icon('favorites', 'lk-nav__icon lk-nav__icon--favorites')
+                span.lk-nav__text Избранное
+            li.lk-nav__item.current
+              a.lk-nav__link(href="download.html" title="Скачивание")
+                +icon('card', 'lk-nav__icon lk-nav__icon--download')
+                span.lk-nav__text Скачивание
+    .page__content.section--pt-medium
+      .container
+        .download-page.download-page--reset-bottom
+          .row
+            .col-xs-12.col-md-10.col-lg-9
+              .download-page__status
+                .download-page__status-text
+                  ="Ваш лимит за скачивания за загрузки:"
+                  .small За регистрацию 3 скачивания в подарок
+                .download-page__status-value
+                  .limits__value 3
+                .download-page__status-text
+                  ="Действует "
+                  b без временных ограничений.
+              .download-page__info За одну загрузку прошедшую модерацию дается одно скачивание. Без срока использования.
+          .text-center
+            h2.h3.large Карты лимитов на скачивание
+  .section.section--pt-medium.section--pb.section--milk
+    .container
+      .limits
+        .limits__item
+          ="Ваш лимит за скачивания по карте"
+          .limits__value 25/100
+        .limits__item
+          ="Действует до"
+          .limits__value 02.02.2022
+    .prices
+      .container
+        .prices__list
+          .prices__item
+            .prices__item-head
+              .prices__item-name Малая
+              .prices__item-price 100 ₽
+            .prices__item-body
+              ul
+                li 10 скачиваний
+                li Срок действия 30 дней
+              .prices__item-button
+                a.button.button--green-clear.button--medium(href="#" title="Приобрести карту") Приобрести карту
+          .prices__item
+            .prices__item-head
+              .prices__item-name Средняя
+              .prices__item-price 350 ₽
+            .prices__item-body
+              ul
+                li 50 скачиваний
+                li Срок действия 30 дней
+              .prices__item-button
+                a.button.button--green-clear.button--medium(href="#" title="Приобрести карту") Приобрести карту
+          .prices__item
+            .prices__item-head
+              .prices__item-name Большая
+              .prices__item-price 600 ₽
+            .prices__item-body
+              ul
+                li 100 скачиваний
+                li Срок действия 30 дней
+              .prices__item-button
+                a.button.button--green-clear.button--medium(href="#" title="Приобрести карту") Приобрести карту
+          .prices__item
+            .prices__item-head
+              .prices__item-name Безлимитная
+              .prices__item-price 900 ₽
+            .prices__item-body
+              ul
+                li Безлимитное скачивание
+                li Срок действия 30 дней
+              .prices__item-button
+                a.button.button--green-clear.button--medium(href="#" title="Приобрести карту") Приобрести карту
+
+
+block footer
+  include ../components/footer/footer
